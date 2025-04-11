@@ -44,60 +44,61 @@
 				</div>
 				<div class="migy-gallery-fields-wrapper">
 					<ul>
-					<li>
-	<label class="migy-gallery-form-control-lebel"><?php echo esc_html__('Upload Image or Enter URL', 'mosaic-image-gallery'); ?></label>
-	<div class="migy-image-field-wrappper">
-		<input class="migy-gallery-form-control migy-image-url" type="text" name="xxx_migy_gallery_image_url[]" value="" placeholder="<?php echo esc_html__('Enter image URL', 'mosaic-image-gallery'); ?>">
-		<a class="migy-gallery-image-upload button button-primary button-large migy-image-upload" href="#"><?php echo esc_html__('Upload', 'mosaic-image-gallery'); ?></a>
-	</div>
-</li>
-<li>
-<label class="migy-gallery-form-control-label"><?php echo esc_html__('Image Title', 'mosaic-image-gallery'); ?></label>
-<input class="migy-gallery-form-control" type="text" name="xxx_migy_image_title[]" value="" placeholder="<?php echo esc_html__('Enter image title', 'mosaic-image-gallery'); ?>">
+						<li>
+							<label class="migy-gallery-form-control-lebel"><?php echo esc_html__('Upload Image or Enter URL', 'mosaic-image-gallery'); ?></label>
+							<div class="migy-image-field-wrappper">
+								<input class="migy-gallery-form-control migy-image-url" type="text" name="xxx_migy_gallery_image_url[]" value="" placeholder="<?php echo esc_html__('Enter image URL', 'mosaic-image-gallery'); ?>">
+								<a class="migy-gallery-image-upload button button-primary button-large migy-image-upload" href="#"><?php echo esc_html__('Upload', 'mosaic-image-gallery'); ?></a>
+							</div>
+						</li>
+						<li>
+						<label class="migy-gallery-form-control-label"><?php echo esc_html__('Image Title', 'mosaic-image-gallery'); ?></label>
+						<input class="migy-gallery-form-control" type="text" name="xxx_migy_image_title[]" value="" placeholder="<?php echo esc_html__('Enter image title', 'mosaic-image-gallery'); ?>">
 
-</li>
+						</li>
 
-<li>
-	<label class="migy-gallery-form-control-lebel"><?php echo esc_html__('Image Description', 'mosaic-image-gallery'); ?></label>
-	<input class="migy-gallery-form-control" type="text" name="xxx_migy_image_description[]" value="" placeholder="<?php echo esc_html__('Enter image description', 'mosaic-image-gallery'); ?>">
-</li>
-<!-- i add -->
-<li>
-	<label class="migy-gallery-form-control-lebel"><?php echo esc_html__('Image alt tag', 'mosaic-image-gallery'); ?></label>
-	<input class="migy-gallery-form-control" type="text" name="xxx_migy_image_alt[]" value="" placeholder="<?php echo esc_html__('Enter image alt', 'mosaic-image-gallery'); ?>">
-</li>
+						<li>
+							<label class="migy-gallery-form-control-lebel"><?php echo esc_html__('Image Description', 'mosaic-image-gallery'); ?></label>
+							<input class="migy-gallery-form-control" type="text" name="xxx_migy_image_description[]" value="" placeholder="<?php echo esc_html__('Enter image description', 'mosaic-image-gallery'); ?>">
+						</li>
+						<!-- i add -->
+						<li>
+							<label class="migy-gallery-form-control-lebel"><?php echo esc_html__('Image alt tag', 'mosaic-image-gallery'); ?></label>
+							<input class="migy-gallery-form-control" type="text" name="xxx_migy_image_alt[]" value="" placeholder="<?php echo esc_html__('Enter image alt', 'mosaic-image-gallery'); ?>">
+						</li>
 
 						<!-- end -->
 
 						<li class="migy_filter_category_field <?php echo esc_attr($hide_show_category_field); ?>">
-	<label class="migy-gallery-form-control-lebel"><?php echo esc_html__('Filter Category', 'mosaic-image-gallery'); ?></label>
-	<select name="migy_filter_category[]" class="migy-filter-category migy-gallery-form-control">
-		<?php 
-		$taxonomy = 'migy-filter-category';
-		$migy_terms = get_terms( array(
-			'taxonomy' => $taxonomy,
-			'hide_empty' => false,
-		) );
-		
-		$default_term_id = get_option($taxonomy . "_default");
-		
-		// Reorder the terms array to make the default term appear first
-		usort( $migy_terms, function( $a, $b ) use ( $default_term_id ) {
-			if ( $a->term_id == $default_term_id ) {
-				return -1;
-			}
-			if ( $b->term_id == $default_term_id ) {
-				return 1;
-			}
-			return 0;
-		});
-		
-		foreach ( $migy_terms as $migy_term ) {
-			echo '<option value="' . esc_attr($migy_term->term_id) . '">' . esc_html($migy_term->name) . '</option>';
-		}
-		?>
-	</select>
-</li>
+							<label class="migy-gallery-form-control-lebel"><?php echo esc_html__('Filter Category', 'mosaic-image-gallery'); ?></label>
+							<select name="migy_filter_category[]" class="migy-filter-category migy-gallery-form-control">
+								<option value="" selected disabled>Choose a category</option>
+								<?php 
+								$taxonomy = 'migy-filter-category';
+								$migy_terms = get_terms( array(
+									'taxonomy' => $taxonomy,
+									'hide_empty' => false,
+								) );
+								
+								$default_term_id = get_option($taxonomy . "_default");
+								
+								// Reorder the terms array to make the default term appear first
+								usort( $migy_terms, function( $a, $b ) use ( $default_term_id ) {
+									if ( $a->term_id == $default_term_id ) {
+										return -1;
+									}
+									if ( $b->term_id == $default_term_id ) {
+										return 1;
+									}
+									return 0;
+								});
+								
+								foreach ( $migy_terms as $migy_term ) {
+									echo '<option value="' . esc_attr($migy_term->term_id) . '">' . esc_html($migy_term->name) . '</option>';
+								}
+								?>
+							</select>
+						</li>
 
 					</ul>
 				</div>
@@ -167,6 +168,7 @@
                 $filter_category = is_array($migy_gallery_item['filter_category']) ? $migy_gallery_item['filter_category'] : array();
                 ?>
                 <select name="migy_filter_category[]" class="migy-filter-category migy-gallery-form-control">
+					<option value="" selected disabled>Choose a category</option>
                     <?php
                     $taxonomy = 'migy-filter-category';
                     $migy_terms = get_terms( array(

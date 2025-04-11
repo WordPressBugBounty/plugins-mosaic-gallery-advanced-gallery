@@ -49,21 +49,6 @@ class MIGY_Gallery_Functions {
         );
 
         register_taxonomy( $taxonomy, 'migy_image_gallery', $args );
-		
-		//Create Uncategorized term
-		$uncategorized = array(
-			'name' => 'Uncategorized',
-			'slug' => 'uncategorized',
-		);
-		
-		$term = wp_insert_term( $uncategorized['name'], $taxonomy, array(
-			'slug' => $uncategorized['slug'],
-		));
-		
-		// Set the term as default for the taxonomy
-		if ( !is_wp_error( $term ) ) {
-			update_option($taxonomy . "_default", $term['term_id']);
-		}
     }
 
     public function mosaic_image_gallery_editor_scripts() {

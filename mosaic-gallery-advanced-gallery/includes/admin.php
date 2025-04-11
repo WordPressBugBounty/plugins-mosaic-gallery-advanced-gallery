@@ -97,18 +97,10 @@ class MIGY_ADMIN_FUNCTIONS {
 			if (isset($_POST['migy_image_alt'])) {
 				$image_alts = array_map('sanitize_text_field', wp_unslash($_POST['migy_image_alt']));
 			}
-
-			$filter_categories = array();
-			if (isset($_POST['migy_filter_category']) && is_array($_POST['migy_filter_category'])) {
-
-				$filter_categories = array_map('intval', wp_unslash($_POST['migy_filter_category']));
-			}
 		
 			foreach ($gallery_image_urls as $k => $item) {
-				// if (!empty(array_filter($filter_categories[$k]))) {
-				if (isset($filter_categories[$k])) {
-
-					$filter_category = array_map('intval', (array)$filter_categories[$k]);
+				if (!empty(array_filter($_POST['migy_filter_category']))) {
+					$filter_category = array_map('intval', (array) $_POST['migy_filter_category'][$k]);
 				} else {
 					$filter_category = array();
 				}
