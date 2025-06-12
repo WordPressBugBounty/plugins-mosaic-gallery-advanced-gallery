@@ -305,3 +305,30 @@
 
 	
 }
+
+/* new add */
+.migy-hover-zoom img {
+	transform: scale(1);
+	transition: transform 0.4s ease;
+}
+.migy-hover-zoom:hover img {
+	transform: scale(1.1);
+}
+
+.migy-hover-grayscale img {
+	filter: grayscale(0%);
+	transition: filter 0.3s ease;
+}
+.migy-hover-grayscale:hover img {
+	filter: grayscale(100%);
+}
+
+.migy-hover-blur img {
+	filter: blur(0px);
+	transition: filter 0.3s ease;
+}
+.migy-hover-blur:hover img {
+	filter: blur(2px);
+}
+
+/* new end  */
