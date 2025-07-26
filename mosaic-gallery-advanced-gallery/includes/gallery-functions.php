@@ -134,6 +134,20 @@ class MIGY_Gallery_Functions {
         $filter_button_bg_active_color = !empty(get_post_meta($id, 'migy_filter_button_active_bg_color', true)) ? get_post_meta($id, 'migy_filter_button_active_bg_color', true) : '#16a085';
         $filter_button_text_active_color = !empty(get_post_meta($id, 'migy_filter_button_active_text_color', true)) ? get_post_meta($id, 'migy_filter_button_active_text_color', true) : '#fff';
 
+        $image_radius = !empty(get_post_meta($id, 'migy_image_radius', true)) ? get_post_meta($id, 'migy_image_radius', true) : '0';
+        $image_radius =  $image_radius .'px';
+
+        $image_shadow = !empty(get_post_meta($id, 'migy_image_shadow', true)) ? get_post_meta($id, 'migy_image_shadow', true) : 'none';
+        $shadow_presets = [
+            'none'          => 'none',
+            'shadow-soft'   => '0 2px 6px rgba(0,0,0)',
+            'shadow-medium' => '0 4px 10px rgba(0,0,0)',
+            'shadow-strong' => '0 6px 16px rgba(0,0,0)'
+        ];
+        
+        $shadow_value = $shadow_presets[$image_shadow] ?? 'none';
+        
+
         $custom_css = "";
         $custom_css .= ".migy-img-viewer-" . $id . " .migy-filter-buttons button.migy-filter-button {
             background-color: " . $filter_button_bg_color . ";
@@ -146,6 +160,14 @@ class MIGY_Gallery_Functions {
             background-color: " . $filter_button_bg_active_color . ";
             color: " . $filter_button_text_active_color . ";
             border: 1px solid " . $filter_button_bg_active_color . ";
+        }";
+
+        $custom_css .= ".migy-img-viewer-" . $id . " .migy-gallery-item img {
+            border-radius: " . $image_radius . ";
+        }";
+
+        $custom_css .= ".migy-img-viewer-" . $id . " .migy-gallery-item {
+            box-shadow: " . $shadow_value . ";
         }";
 
         wp_enqueue_style('migy-custom-styles', MIGY_CSS_URI.'/custom-styles.css', array(), MIGY_VERSION);

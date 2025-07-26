@@ -11,6 +11,7 @@
 <div class="migy-filter-buttons" data-isotope-key="filter">
 	<?php
 	echo '<button class="migy-filter-button active" data-filter="all">'.esc_html__('All','mosaic-image-gallery').'</button>';
+
 	 
 	$filter_category_ids = array();
 	foreach( $gallery_items as $gallery_item ) {

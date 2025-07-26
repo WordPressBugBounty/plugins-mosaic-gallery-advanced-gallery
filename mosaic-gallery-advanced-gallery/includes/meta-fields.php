@@ -407,18 +407,49 @@ if (!defined('ABSPATH'))
 			</tr>
 
 			<tr>
-	<?php
-	$migy_gallery_padding = get_post_meta($post->ID, 'migy_gallery_padding', true) ?: '1';
-	?>
-	<td>
-		<label for="migy_gallery_padding"><strong>Gallery Padding</strong></label>
-	</td>
-	<td>
-		<input type="number" min="0" id="migy_gallery_padding" name="migy_gallery_padding" class="migy-form-field" value="<?php echo esc_attr($migy_gallery_padding); ?>"> PX
-	</td>
-</tr>
+			<?php
+			$migy_gallery_padding = get_post_meta($post->ID, 'migy_gallery_padding', true) ?: '1';
+			?>
+			<td>
+				<label for="migy_gallery_padding"><strong>Gallery Padding</strong></label>
+			</td>
+			<td>
+				<input type="number" min="0" id="migy_gallery_padding" name="migy_gallery_padding" class="migy-form-field" value="<?php echo esc_attr($migy_gallery_padding); ?>"> PX
+			</td>
+		</tr>
 
 
+		<tr>
+			<?php
+			$migy_image_radius = get_post_meta($post->ID, 'migy_image_radius', true) ?: '';
+			?>
+			<td>
+				<label for="migy_image_radius"><strong>Image Border Radius</strong></label>
+			</td>
+			<td>
+				<input type="number" min="0" id="migy_image_radius" name="migy_image_radius" class="migy-form-field" value="<?php echo esc_attr($migy_image_radius); ?>" placeholder="e.g., 10px"> PX
+			</td>
+		</tr>
+
+		<tr>
+			<?php
+			$migy_image_shadow = get_post_meta($post->ID, 'migy_image_shadow', true) ?: 'none';
+			?>
+			<td>
+				<label for="migy_image_shadow"><strong>Image Box Shadow</strong></label>
+			</td>
+			<td>
+			<?php
+				$migy_image_shadow = get_post_meta($post->ID, 'migy_image_shadow', true) ?: 'none';
+				?>
+				<select id="migy_image_shadow" name="migy_image_shadow" class="migy-form-field">
+					<option value="none" <?php selected('none', $migy_image_shadow); ?>>None</option>
+					<option value="shadow-soft" <?php selected('shadow-soft', $migy_image_shadow); ?>>Soft Shadow</option>
+					<option value="shadow-medium" <?php selected('shadow-medium', $migy_image_shadow); ?>>Medium Shadow</option>
+					<option value="shadow-strong" <?php selected('shadow-strong', $migy_image_shadow); ?>>Strong Shadow</option>
+				</select>
+			</td>
+		</tr>
 			<!-- new end -->
 		</tbody>
 	</table>

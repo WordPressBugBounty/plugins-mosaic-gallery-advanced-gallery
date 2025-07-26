@@ -207,6 +207,8 @@ class MIGY_ADMIN_FUNCTIONS
 			// new add
 			'migy_hover_effect' => 'text',
 			'migy_gallery_padding' => 'text',
+			'migy_image_radius' => 'text',
+			'migy_image_shadow' => 'text',
 
 		);
 
