@@ -34,7 +34,7 @@
 		e.preventDefault();
 
 		var imageTag = $(this).parents('.migy-field-item').find('.migy-gallery-perview-image');
-		var imageUrl = $(this).parent('.migy-image-field-wrappper').find('input[name="migy_gallery_image_url[]"]');
+		var imageUrl = $(this).parents('.migy-image-field-wrapper').find('input.migy-image-url');
 
 		// If the media frame already exists, reopen it.
 		if (gallery_image_file_frame) {
@@ -162,7 +162,7 @@
 
 	});
 
-
+// fetch templates from live
 	jQuery(document).ready(function($) {
 		var page = 1;
 		var isLoading = false;

@@ -34,9 +34,7 @@ if (!defined('ABSPATH'))
 
 		<div id="migy_gallery_images_<?php echo esc_attr($id); ?>"
 			class="migy_gallery_images migy_zoom_gallery <?php echo esc_attr($migy_gallery_layout); ?> <?php echo esc_attr($migy_gallery_column); ?> <?php echo esc_attr($migy_gallery_item_space); ?>">
-
-
-
+			
 			<?php if ($migy_masonry_layout == 'yes'): ?>
 			<?php endif; ?>
 			<?php

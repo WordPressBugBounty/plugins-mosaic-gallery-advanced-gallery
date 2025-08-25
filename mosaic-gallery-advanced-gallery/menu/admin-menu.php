@@ -100,6 +100,11 @@ function migy_get_filtered_products_ajax() {
 
             $product_obj = $product->node;
                         
+            // Skip products with the title "Testing"
+            if ($product_obj->title === 'Testing') {
+                continue;
+            }
+
             if (isset($product_obj->inCollection) && !$product_obj->inCollection) {
                 continue;
             }
@@ -200,6 +205,11 @@ function migy_dashboard_page() { ?>
 
                             $product_obj = $product->node;
                             
+                            // Skip products with the title "Testing"
+                            if ($product_obj->title === 'Testing') {
+                                continue;
+                            }
+
                             if (isset($product_obj->inCollection) && !$product_obj->inCollection) {
                                 continue;
                             }

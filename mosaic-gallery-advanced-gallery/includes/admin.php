@@ -90,31 +90,28 @@ class MIGY_ADMIN_FUNCTIONS
 
 			$gallery_image_urls = array_map('esc_url_raw', wp_unslash($_POST['migy_gallery_image_url']));
 
-			$image_titles = '';
+			$image_titles = array();
 			if (isset($_POST['migy_image_title'])) {
 				$image_titles = array_map('sanitize_text_field', wp_unslash($_POST['migy_image_title']));
 			}
 
-			$image_descriptions = '';
+			$image_descriptions = array();
 			if (isset($_POST['migy_image_description'])) {
 				$image_descriptions = array_map('sanitize_text_field', wp_unslash($_POST['migy_image_description']));
 			}
 
-			$image_alts = '';
+			$image_alts = array();
 			if (isset($_POST['migy_image_alt'])) {
 				$image_alts = array_map('sanitize_text_field', wp_unslash($_POST['migy_image_alt']));
 			}
 
 			$filter_categories = array();
 			if (isset($_POST['migy_filter_category']) && is_array($_POST['migy_filter_category'])) {
-
 				$filter_categories = array_map('intval', wp_unslash($_POST['migy_filter_category']));
 			}
 
 			foreach ($gallery_image_urls as $k => $item) {
-				// if (!empty(array_filter($filter_categories[$k]))) {
 				if (isset($filter_categories[$k])) {
-
 					$filter_category = array_map('intval', (array) $filter_categories[$k]);
 				} else {
 					$filter_category = array();
@@ -122,9 +119,9 @@ class MIGY_ADMIN_FUNCTIONS
 
 				$all_items[] = array(
 					'image_url' => $item,
-					'image_title' => $image_titles != '' ? $image_titles[$k] : '',
-					'image_description' => $image_descriptions != '' ? $image_descriptions[$k] : '',
-					'image_alt' => $image_alts[$k],
+					'image_title' => isset($image_titles[$k]) ? $image_titles[$k] : '',
+					'image_description' => isset($image_descriptions[$k]) ? $image_descriptions[$k] : '',
+					'image_alt' => isset($image_alts[$k]) ? $image_alts[$k] : '',
 					'filter_category' => $filter_category
 				);
 			}
@@ -209,6 +206,10 @@ class MIGY_ADMIN_FUNCTIONS
 			'migy_gallery_padding' => 'text',
 			'migy_image_radius' => 'text',
 			'migy_image_shadow' => 'text',
+			'migy_title_color' => 'text',
+			'migy_description_color' => 'text',
+			'migy_title_font_size' => 'text',
+			'migy_description_font_size' => 'text',
 
 		);
 

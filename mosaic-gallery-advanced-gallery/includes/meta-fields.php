@@ -56,13 +56,13 @@ if (!defined('ABSPATH'))
 						<li>
 							<label
 								class="migy-gallery-form-control-lebel"><?php echo esc_html__('Upload Image or Enter URL', 'mosaic-image-gallery'); ?></label>
-							<div class="migy-image-field-wrappper">
-								<input class="migy-gallery-form-control migy-image-url" type="text"
-									name="xxx_migy_gallery_image_url[]" value=""
-									placeholder="<?php echo esc_html__('Enter image URL', 'mosaic-image-gallery'); ?>">
-								<a class="migy-gallery-image-upload button button-primary button-large migy-image-upload"
-									href="#"><?php echo esc_html__('Upload', 'mosaic-image-gallery'); ?></a>
-							</div>
+								<div class="migy-image-field-wrapper">
+									<input class="migy-gallery-form-control migy-image-url" type="text"
+										name="xxx_migy_gallery_image_url[]" value=""
+										placeholder="<?php echo esc_html__('Enter image URL', 'mosaic-image-gallery'); ?>">
+									<a class="migy-gallery-image-upload button button-primary button-large migy-image-upload"
+										href="#"><?php echo esc_html__('Upload', 'mosaic-image-gallery'); ?></a>
+								</div>
 						</li>
 						<li>
 							<label
@@ -385,6 +385,58 @@ if (!defined('ABSPATH'))
 						value="<?php echo esc_html($migy_filter_button_active_text_color); ?>">
 				</td>
 			</tr>
+
+			<!-- Image Title and Description Colors -->
+			<tr>
+				<?php
+				$migy_title_color = !empty(get_post_meta($post->ID, 'migy_title_color', true)) ? get_post_meta($post->ID, 'migy_title_color', true) : '#FFFFFF';
+				?>
+				<td>
+					<label><strong>Image Text Colors</strong></label>
+				</td>
+				<td>
+					<label for="migy_title_color"><strong>Title Color</strong></label><br>
+					<input type="color" name="migy_title_color" id="migy_title_color"
+						class="migy-form-field" value="<?php echo esc_html($migy_title_color); ?>">
+				</td>
+			</tr>
+			<tr>
+				<?php
+				$migy_description_color = !empty(get_post_meta($post->ID, 'migy_description_color', true)) ? get_post_meta($post->ID, 'migy_description_color', true) : '#FFFFFF';
+				?>
+				<td></td>
+				<td>
+					<label for="migy_description_color"><strong>Description Color</strong></label><br>
+					<input type="color" name="migy_description_color" id="migy_description_color"
+						class="migy-form-field" value="<?php echo esc_html($migy_description_color); ?>">
+				</td>
+			</tr>
+
+			<!-- Title and Description Font Sizes -->
+			<tr>
+				<?php
+				$migy_title_font_size = !empty(get_post_meta($post->ID, 'migy_title_font_size', true)) ? get_post_meta($post->ID, 'migy_title_font_size', true) : '17';
+				?>
+				<td>
+					<label><strong>Font Sizes</strong></label>
+				</td>
+				<td>
+					<label for="migy_title_font_size"><strong>Title Font Size</strong></label><br>
+					<input type="number" id="migy_title_font_size" name="migy_title_font_size" class="migy-form-field" value="<?php echo esc_attr($migy_title_font_size); ?>" min="10" max="50" step="1"> px
+				</td>
+			</tr>
+			<tr>
+				<?php
+				$migy_description_font_size = !empty(get_post_meta($post->ID, 'migy_description_font_size', true)) ? get_post_meta($post->ID, 'migy_description_font_size', true) : '14';
+				?>
+				<td></td>
+				<td>
+					<label for="migy_description_font_size"><strong>Description Font Size</strong></label><br>
+					<input type="number" id="migy_description_font_size" name="migy_description_font_size" class="migy-form-field" value="<?php echo esc_attr($migy_description_font_size); ?>" min="10" max="30" step="1"> px
+				</td>
+			</tr>
+
+			<!-- end  -->
 
 
 			<!-- new add -->

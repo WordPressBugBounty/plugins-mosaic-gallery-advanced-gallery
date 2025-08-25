@@ -147,6 +147,15 @@ class MIGY_Gallery_Functions {
         
         $shadow_value = $shadow_presets[$image_shadow] ?? 'none';
         
+        // Get title and description colors
+        $title_color = !empty(get_post_meta($id, 'migy_title_color', true)) ? get_post_meta($id, 'migy_title_color', true) : '#FFFFFF';
+        $description_color = !empty(get_post_meta($id, 'migy_description_color', true)) ? get_post_meta($id, 'migy_description_color', true) : '#FFFFFF';
+        
+        // Get title and description font sizes
+        $title_font_size = !empty(get_post_meta($id, 'migy_title_font_size', true)) ? get_post_meta($id, 'migy_title_font_size', true) : '17';
+        $description_font_size = !empty(get_post_meta($id, 'migy_description_font_size', true)) ? get_post_meta($id, 'migy_description_font_size', true) : '14';
+        
+        
 
         $custom_css = "";
         $custom_css .= ".migy-img-viewer-" . $id . " .migy-filter-buttons button.migy-filter-button {
@@ -168,6 +177,17 @@ class MIGY_Gallery_Functions {
 
         $custom_css .= ".migy-img-viewer-" . $id . " .migy-gallery-item {
             box-shadow: " . $shadow_value . ";
+        }";
+
+        // Add title and description color styles
+        $custom_css .= ".migy-img-viewer-" . $id . " .migy-image-title {
+            color: " . $title_color . " !important;
+            font-size: " . $title_font_size . "px !important;
+        }";
+
+        $custom_css .= ".migy-img-viewer-" . $id . " .migy-image-description {
+            color: " . $description_color . " !important;
+            font-size: " . $description_font_size . "px !important;
         }";
 
         wp_enqueue_style('migy-custom-styles', MIGY_CSS_URI.'/custom-styles.css', array(), MIGY_VERSION);
