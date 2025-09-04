@@ -14,6 +14,7 @@ class MIGY_Gallery_Functions {
 		add_action('wp_enqueue_scripts', array($this,'mosaic_image_gallery_scripts'));
         add_action('enqueue_block_editor_assets', array($this,'mosaic_image_gallery_editor_scripts'));
 		add_action('admin_enqueue_scripts', array($this,'admin_scripts'));
+        add_action('wp_ajax_migy_get_notice_dismiss', [$this, 'migy_get_notice_dismiss']);
     }
 	
 	//Initializes the plugin
@@ -36,6 +37,16 @@ class MIGY_Gallery_Functions {
             'supports'=>array('title')
         ));
         
+    }
+     public function migy_get_notice_dismiss() {
+
+            delete_option( 'migy_show_activation_popup' );
+            update_option('migy_show_deactivation_popup', true);
+
+            wp_send_json_success([
+                "code" => 200,
+                "msg" => "Activation popup preference saved successfully."
+            ]);
     }
 	
 	//Register taxonomy
@@ -100,6 +111,8 @@ class MIGY_Gallery_Functions {
         }
         //CSS style
         wp_enqueue_style('migy-admin-styles', MIGY_PLUGIN_ASSEST.'admin/css/admin-style.css', array(), MIGY_VERSION);
+        wp_enqueue_script('migy-admin-scripts', MIGY_PLUGIN_ASSEST.'admin/js/admin-scripts.js', array('jquery'), MIGY_VERSION, true);
+
         //JS script
 		global $post_type;
 		if( 'migy_image_gallery' == $post_type) {
@@ -112,11 +125,14 @@ class MIGY_Gallery_Functions {
 				wp_enqueue_style('thickbox');
 			}
 		}
-        wp_enqueue_script('migy-admin-scripts', MIGY_PLUGIN_ASSEST.'admin/js/admin-scripts.js', array('jquery'), MIGY_VERSION, true);
 
         wp_localize_script('migy-admin-scripts', 'migy_pagination_object', array(
             'ajaxurl' => admin_url('admin-ajax.php'),
             'nonce'   => wp_create_nonce('migy_create_pagination_nonce_action')
+        ));
+
+        wp_localize_script('migy-admin-scripts', 'migy_ajax_object', array(
+            'ajaxurl' => admin_url('admin-ajax.php'),
         ));
     }
 	

@@ -16,6 +16,7 @@ class MIGY_ADMIN_FUNCTIONS
 		add_filter('manage_migy_image_gallery_posts_columns', array($this, 'migy_custom_columns'), 10);
 		add_action('manage_posts_custom_column', array($this, 'migy_custom_columns_shortcode'), 10, 2);
 
+		
 	}
 
 	/**
@@ -31,6 +32,7 @@ class MIGY_ADMIN_FUNCTIONS
 		);
 	}
 
+	
 
 	/**
 	 * Meta box display callback.

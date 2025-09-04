@@ -567,3 +567,80 @@ li.migy_disabled_field input.migy-gallery-form-control {
   
 }
 /*Pro fields CSS End*/
+
+
+
+/* 03/09/25 */
+
+#migy-popup-overlay {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#00000080;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+#migy-popup-content {
+  background: linear-gradient(90deg, #F78024, #FFA202);
+  padding: 30px;
+  border-radius: 6px;
+  max-width: 600px;
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+#migy-popup-content .migy-popup-template-btn, #migy-popup-content  .migy-popup-bundle-btn {
+  color: black;
+  background: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 20px;
+  padding: 0px 50px;
+}
+#migy-popup-content .migy-popup-template-btn:hover,
+#migy-popup-content .migy-popup-bundle-btn:hover {
+  color: white;
+  background: black;
+}
+
+.migy-popup-wrap {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+}
+#migy-popup-content img {
+  width: 100%;
+}
+#migy-popup-content .migy-popup-bundle-btn {
+   background: #fff;
+   color: #000;
+}
+#migy-popup-content .migy-popup-bundle-btn:hover {
+  background: #000;
+  color: #fff;
+}
+#migy-popup-content h2 {
+  font-size: 25px;
+  margin-bottom: 40px;
+}
+#migy-popup-content .migy-popup-dismiss {
+  rotate: 45deg;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 40px;
+  cursor: pointer;
+  color: #fff;
+}
+.migy-premium-floating-btn {
+  background: linear-gradient(90deg, #F78024, #FFA202) !important;
+  border: none !important;
+  border-radius: 2px !important;
+  font-size: 18px !important;
+  padding: 0px 16px !important;
+}

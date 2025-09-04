@@ -1,10 +1,10 @@
 === Mosaic Gallery - Advanced Gallery  ===
 Contributors: misbahwp
-Tags: gallery, image-gallery, photo-gallery, carousel-slider, image-sliders
+Tags: gallery, image gallery, photo gallery, video gallery, wordpress gallery plugin
 Requires at least: 5.4
 Tested up to: 6.8
 Requires PHP: 5.2.4
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -44,6 +44,10 @@ The plugin comes with a user-friendly interface, allowing you to drag and drop i
 
 * More features are coming soon..
 
+**🔥 Get the [WordPress Bundle](https://www.misbahwp.com/products/wordpress-bundle)**
+
+**✨ Explore [Pro Templates](https://www.misbahwp.com/collections/wp-themes)**
+
 
 == Libraries Used ==
 
@@ -66,8 +70,6 @@ This plugin utilizes the following third-party libraries:
 
 These libraries contribute to the functionality, performance, and user experience of the Mosaic Gallery plugin.
 
-
-
 == Installation ==
 1. Download and unzip the plugin. Upload the unzipped folder to the wp-contents/plugins folder of your WordPress installation.
 2. Active the plugin from the WordPress Plugins administration page.
@@ -77,38 +79,12 @@ These libraries contribute to the functionality, performance, and user experienc
 
 == Changelog ==
 
-= 1.0.0 - 2024-09-10 =
-* Initial release
+= 1.1.3 - 2025-04-09 =
+* Popup added for templates.
 
-= 1.0.1 - 2024-10-10 =
-* Minor Fixes.
-
-= 1.0.2 - 2024-16-10 =
-* Minor Fixes.
-
-= 1.0.3 - 2024-18-10 =
-* Minor Fixes.
-
-= 1.0.4 - 2024-31-10 =
-* Minor Fixes.
-
-= 1.0.5 - 2024-29-11 =
-* Updated UI.
-* Minor Fixes.
-
-= 1.0.6 - 2025-22-01 =
-* Updated UI.
-
-= 1.0.7 - 2025-13-02 =
-* Updated UI.
-* Minor Fixes.
-
-= 1.0.9 - 2025-11-04 =
-* Minor Fixes.
-
-= 1.1.0 - 2025-09-05 =
-* Updated customization settings.
-* Minor fixes and improvements.
+= 1.1.2 - 2025-25-08 =
+* Added customization options for image title and description colors in the gallery.
+* Enhanced gallery customization flexibility for better design control.
 
 = 1.1.1 - 2025-23-07 =
 * Added image border radius option in Style Settings tab.
@@ -116,6 +92,62 @@ These libraries contribute to the functionality, performance, and user experienc
 * Improved UI clarity by replacing box shadow text input with a user-friendly dropdown.
 * Minor code cleanup and CSS structure enhancements.
 
-= 1.1.2 - 2025-25-08 =
-* Added customization options for image title and description colors in the gallery.
-* Enhanced gallery customization flexibility for better design control.
+= 1.1.0 - 2025-09-05 =
+* Updated customization settings.
+* Minor fixes and improvements.
+
+= 1.0.9 - 2025-11-04 =
+* Minor Fixes.
+
+= 1.0.8 - 2025-29-03 =
+* Updated UI.
+* Minor Fixes.
+
+= 1.0.7 - 2025-13-02 =
+* Updated UI.
+* Minor Fixes.
+
+= 1.0.6 - 2025-22-01 =
+* Updated UI.
+
+= 1.0.5 - 2024-29-11 =
+* Updated UI.
+* Minor Fixes.
+
+= 1.0.4 - 2024-31-10 =
+* Minor Fixes.
+
+= 1.0.3 - 2024-18-10 =
+* Minor Fixes.
+
+= 1.0.2 - 2024-16-10 =
+* Minor Fixes.
+
+= 1.0.1 - 2024-10-10 =
+* Minor Fixes.
+
+= 1.0.0 - 2024-09-10 =
+* Initial release
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

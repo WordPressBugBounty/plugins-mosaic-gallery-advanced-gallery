@@ -294,3 +294,22 @@ function show() {
 function hide() {
 	menuBox.style.display = "none";
 }
+
+
+
+
+jQuery(document).ready(function($) {
+    $('#migy-popup-content .migy-popup-dismiss, #migy-popup-content .migy-popup-template-btn').on('click', function() {
+        $.ajax({
+            url: migy_ajax_object.ajaxurl,
+            type: 'POST',
+            data: { action: 'migy_get_notice_dismiss' },
+            success: function(response) {
+                $('#migy-popup-overlay').hide();     
+                // $('.migy-premium-floating-btn').fadeIn(); 
+                $('.migy-premium-floating-btn').fadeIn().attr('style', 'display: inline-block !important; position: fixed; bottom: 20px; right: 20px; z-index: 9999; padding: 10px 15px;');         
+            }
+        });
+    });
+    
+});
