@@ -258,7 +258,7 @@ if (!defined('ABSPATH'))
 		?>
 		<label for="display-title">
 			<input id="display-title" name="migy_display_image_title" type="checkbox" value="yes" <?php checked('yes', $display_image_title, true); ?>>
-			<strong>Display Image Info</strong>
+			<strong>Display Image Title</strong>
 		</label>
 	</p>
 
@@ -411,6 +411,91 @@ if (!defined('ABSPATH'))
 						class="migy-form-field" value="<?php echo esc_html($migy_description_color); ?>">
 				</td>
 			</tr>
+
+			<!-- Title and Description Font Family -->
+			<tr>
+				<?php
+				// Get stored values or set defaults
+				$migy_title_font_family = !empty(get_post_meta($post->ID, 'migy_title_font_family', true)) ? get_post_meta($post->ID, 'migy_title_font_family', true) : 'Arial, Helvetica, sans-serif';
+				$migy_description_font_family = !empty(get_post_meta($post->ID, 'migy_description_font_family', true)) ? get_post_meta($post->ID, 'migy_description_font_family', true) : 'Georgia, serif';
+
+				// WordPress default web-safe font list
+				$default_fonts = array(
+					'Arial, Helvetica, sans-serif' => 'Arial',
+					'Georgia, serif' => 'Georgia',
+					'"Times New Roman", Times, serif' => 'Times New Roman',
+					'"Courier New", Courier, monospace' => 'Courier New',
+					'"Palatino Linotype", "Book Antiqua", Palatino, serif' => 'Palatino Linotype'
+				);
+				?>
+				<td>
+					<label><strong>Font Family</strong></label>
+				</td>
+				<td>
+					<!-- Title Font Family -->
+					<label for="migy_title_font_family"><strong>Title Font Family</strong></label><br>
+					<select id="migy_title_font_family" name="migy_title_font_family" class="migy-form-field">
+						<?php foreach ($default_fonts as $font_value => $font_label) : ?>
+							<option value="<?php echo esc_attr($font_value); ?>" <?php selected($migy_title_font_family, $font_value); ?>>
+								<?php echo esc_html($font_label); ?>
+							</option>
+						<?php endforeach; ?>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td>
+					<!-- Description Font Family -->
+					<label for="migy_description_font_family"><strong>Description Font Family</strong></label><br>
+					<select id="migy_description_font_family" name="migy_description_font_family" class="migy-form-field">
+						<?php foreach ($default_fonts as $font_value => $font_label) : ?>
+							<option value="<?php echo esc_attr($font_value); ?>" <?php selected($migy_description_font_family, $font_value); ?>>
+								<?php echo esc_html($font_label); ?>
+							</option>
+						<?php endforeach; ?>
+					</select>
+				</td>
+			</tr>
+			<!-- end font family section -->
+
+			<!-- Title Alignment -->
+			<tr>
+				<?php
+				$migy_title_alignment = !empty(get_post_meta($post->ID, 'migy_title_alignment', true)) ? get_post_meta($post->ID, 'migy_title_alignment', true) : 'left';
+				?>
+				<td>
+					<label><strong>Title Alignment</strong></label>
+				</td>
+				<td>
+					<select id="migy_title_alignment" name="migy_title_alignment" class="migy-form-field">
+						<option value="left" <?php selected('left', $migy_title_alignment, true); ?>>Left</option>
+						<option value="center" <?php selected('center', $migy_title_alignment); ?>>Center</option>
+						<option value="right" <?php selected('right', $migy_title_alignment); ?>>Right</option>
+					</select>
+				</td>
+			</tr>
+			<!-- end title alignment -->
+
+			<!-- Description Alignment -->
+			<tr>
+				<?php
+				$migy_description_alignment = !empty(get_post_meta($post->ID, 'migy_description_alignment', true)) ? get_post_meta($post->ID, 'migy_description_alignment', true) : 'left';
+				?>
+				<td>
+					<label><strong>Description Alignment</strong></label>
+				</td>
+				<td>
+					<select id="migy_description_alignment" name="migy_description_alignment" class="migy-form-field">
+						<option value="left" <?php selected('left', $migy_description_alignment, true); ?>>Left</option>
+						<option value="center" <?php selected('center', $migy_description_alignment); ?>>Center</option>
+						<option value="right" <?php selected('right', $migy_description_alignment); ?>>Right</option>
+					</select>
+				</td>
+			</tr>
+			<!-- end description alignment -->
+
 
 			<!-- Title and Description Font Sizes -->
 			<tr>

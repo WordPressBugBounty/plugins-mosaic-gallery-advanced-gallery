@@ -203,7 +203,6 @@ class MIGY_ADMIN_FUNCTIONS
 			'migy_filter_button_text_color' => 'text',
 			'migy_filter_button_active_bg_color' => 'text',
 			'migy_filter_button_active_text_color' => 'text',
-			// new add
 			'migy_hover_effect' => 'text',
 			'migy_gallery_padding' => 'text',
 			'migy_image_radius' => 'text',
@@ -212,7 +211,10 @@ class MIGY_ADMIN_FUNCTIONS
 			'migy_description_color' => 'text',
 			'migy_title_font_size' => 'text',
 			'migy_description_font_size' => 'text',
-
+			'migy_title_font_family' => 'text',
+			'migy_description_font_family' => 'text',
+			'migy_title_alignment' => 'text',
+			'migy_description_alignment' => 'text',
 		);
 
 		return apply_filters('migy_meta_field_names', $fields);

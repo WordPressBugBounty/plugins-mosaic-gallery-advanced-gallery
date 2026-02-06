@@ -29,7 +29,7 @@ function migy_get_categories() {
             'status'    => true,
             'code'      => 200,
             'data'      => isset($data['data']) ? $data['data'] : array(),
-            'msg'       => 'Collections data retrieved'
+            'msg'       => 'Collections data retrieved!'
         ));
         exit;
     }
@@ -83,7 +83,7 @@ function migy_get_templates() {
             'status'    => true,
             'code'      => 200,
             'data'      => isset($data['data']) ? $data['data'] : array(),
-            'msg'       => 'Templates data retrieved'
+            'msg'       => 'Templates data retrieved!'
         ));
         exit;
     }

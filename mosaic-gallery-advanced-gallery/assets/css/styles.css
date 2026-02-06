@@ -64,10 +64,23 @@
     background: rgba(0, 0, 0, 0.51);
     width: 100%;
     top: 100%;
-    margin-top: -38px;
+    margin-top: -50px;
     bottom: 0;
     transition: 0.7s;
+    /* max-height: 120px; */
+    overflow-y: auto;
+    box-sizing: border-box;
 }
+
+
+.migy-img-viewer .migy-item-meta::-webkit-scrollbar {
+    width: 0;
+}
+
+.migy-img-viewer .migy-item-meta:hover::-webkit-scrollbar {
+    width: 6px;
+}
+
 
 .migy-img-viewer .migy-item-meta.migy-item-meta-with-description:hover {
     top: 0;

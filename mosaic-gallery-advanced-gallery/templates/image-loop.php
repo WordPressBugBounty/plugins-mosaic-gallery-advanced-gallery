@@ -17,7 +17,7 @@
 ?>
 <div class="migy-gallery-item <?php echo esc_attr($migy_gallery_item_class); ?> <?php echo esc_attr($filter_categories); ?> migy-hover-<?php echo esc_attr($migy_hover_effect); ?>" style="padding: <?php echo esc_attr($migy_gallery_padding); ?>px;">
 	<img src="<?php echo esc_url($image_url) ?>" alt="<?php echo esc_html($image_title); ?>">
-	<?php if($display_image_title == 'yes' && !empty($image_title)): ?>
+	<?php if(($display_image_title == 'yes' && !empty($image_title)) || ($display_image_description == 'yes' && !empty($image_description))): ?>
 	<div class="migy-item-meta <?php echo esc_attr($migy_item_meta_class); ?>">
 		<?php if($display_image_title == 'yes' && !empty($image_title)): ?>
 		<h2 class="migy-image-title"><?php echo esc_html($image_title); ?></h2>

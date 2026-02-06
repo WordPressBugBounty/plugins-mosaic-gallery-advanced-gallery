@@ -4,7 +4,7 @@ Tags: gallery, image gallery, photo gallery, video gallery, wordpress gallery pl
 Requires at least: 5.4
 Tested up to: 6.8
 Requires PHP: 5.2.4
-Stable tag: 1.1.3
+Stable tag: 1.1.6
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,18 @@ These libraries contribute to the functionality, performance, and user experienc
 
 
 == Changelog ==
+
+= 1.1.6 - 2025-27-12 =
+* Added title and description alignment options.
+* Minor Fixes.
+
+= 1.1.5 - 2025-18-11 =
+* Minor Fixes.
+
+= 1.1.4 - 2025-31-10 =
+* Added font family option in style settings.
+* Improved template include using global path constants and WordPress standards.
+* Minor Fixes.
 
 = 1.1.3 - 2025-04-09 =
 * Popup added for templates.

@@ -162,15 +162,19 @@ class MIGY_Gallery_Functions {
         ];
         
         $shadow_value = $shadow_presets[$image_shadow] ?? 'none';
-        
-        // Get title and description colors
+
         $title_color = !empty(get_post_meta($id, 'migy_title_color', true)) ? get_post_meta($id, 'migy_title_color', true) : '#FFFFFF';
         $description_color = !empty(get_post_meta($id, 'migy_description_color', true)) ? get_post_meta($id, 'migy_description_color', true) : '#FFFFFF';
-        
-        // Get title and description font sizes
+
         $title_font_size = !empty(get_post_meta($id, 'migy_title_font_size', true)) ? get_post_meta($id, 'migy_title_font_size', true) : '17';
         $description_font_size = !empty(get_post_meta($id, 'migy_description_font_size', true)) ? get_post_meta($id, 'migy_description_font_size', true) : '14';
         
+        $title_font_family = !empty(get_post_meta($id, 'migy_title_font_family', true)) ? get_post_meta($id, 'migy_title_font_family', true) : 'Arial, Helvetica, sans-serif';
+        $description_font_family = !empty(get_post_meta($id, 'migy_description_font_family', true)) ? get_post_meta($id, 'migy_description_font_family', true) : 'Georgia, serif';
+
+        $title_alignment = !empty(get_post_meta($id, 'migy_title_alignment', true)) ? get_post_meta($id, 'migy_title_alignment', true) : 'left';
+
+        $description_alignment = !empty(get_post_meta($id, 'migy_description_alignment', true)) ? get_post_meta($id, 'migy_description_alignment', true) : 'left';
         
 
         $custom_css = "";
@@ -199,11 +203,15 @@ class MIGY_Gallery_Functions {
         $custom_css .= ".migy-img-viewer-" . $id . " .migy-image-title {
             color: " . $title_color . " !important;
             font-size: " . $title_font_size . "px !important;
+            font-family: " . $title_font_family . " !important;
+            text-align: " . $title_alignment . " !important;
         }";
 
         $custom_css .= ".migy-img-viewer-" . $id . " .migy-image-description {
             color: " . $description_color . " !important;
             font-size: " . $description_font_size . "px !important;
+            font-family: " . $description_font_family . " !important;
+            text-align: " . $description_alignment . " !important;
         }";
 
         wp_enqueue_style('migy-custom-styles', MIGY_CSS_URI.'/custom-styles.css', array(), MIGY_VERSION);
@@ -211,7 +219,7 @@ class MIGY_Gallery_Functions {
 
         ob_start();
 
-        include plugin_dir_path( __FILE__ ) . '../templates/gallery.php';
+        include MIGY_PLUGIN_DIR. 'templates/gallery.php';
 
     	return ob_get_clean();
     }
