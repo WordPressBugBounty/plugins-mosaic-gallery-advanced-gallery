@@ -2,7 +2,7 @@
 /*
  * Plugin Name: Mosaic Gallery - Advanced Gallery
  * Description: Mosaic Gallery is an advanced WordPress plugin for creating stunning, responsive mosaic-style galleries with ease, offering customizable layouts and effects.
- * Version: 1.1.6
+ * Version: 1.1.7
  * Author: misbahwp
  * Plugin URI: 
  * Text Domain: mosaic-image-gallery
@@ -17,7 +17,7 @@ class Mosaic_Image_Gallery
 
     public function __construct()
     {
-        define('MIGY_VERSION', '1.1.6');
+        define('MIGY_VERSION', '1.1.7');
         define('MIGY_GALLERY_SHORTCODE', 'migy_gallery');
         define('MIGY_PLUGIN_ASSEST', trailingslashit(plugins_url('assets', __FILE__)));
         define('MIGY_CSS_URI', MIGY_PLUGIN_ASSEST . 'css');
@@ -152,6 +152,14 @@ class Mosaic_Image_Gallery
 
     public function migy_floating_btn()
     {
+        if (is_admin()) {
+            $screen = get_current_screen();
+
+            if ($screen && $screen->is_block_editor) {
+                return;
+            }
+        }
+
         if (isset($_GET['page']) && $_GET['page'] === 'migy_templates') {
             return;
         }
@@ -162,6 +170,8 @@ class Mosaic_Image_Gallery
         </a>
         <?php
     }
+
+
 }
 
 new Mosaic_Image_Gallery();

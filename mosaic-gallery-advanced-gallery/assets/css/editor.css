@@ -33,3 +33,7 @@
 .migy-demo-btn:hover, .migy-buy-now-btn:hover {
     color: #FFFFFF !important;
 }
+
+.migy-side-panel-img img{
+    max-width: 100%;
+}

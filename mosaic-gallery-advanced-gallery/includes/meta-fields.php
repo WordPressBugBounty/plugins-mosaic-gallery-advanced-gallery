@@ -56,13 +56,13 @@ if (!defined('ABSPATH'))
 						<li>
 							<label
 								class="migy-gallery-form-control-lebel"><?php echo esc_html__('Upload Image or Enter URL', 'mosaic-image-gallery'); ?></label>
-								<div class="migy-image-field-wrapper">
-									<input class="migy-gallery-form-control migy-image-url" type="text"
-										name="xxx_migy_gallery_image_url[]" value=""
-										placeholder="<?php echo esc_html__('Enter image URL', 'mosaic-image-gallery'); ?>">
-									<a class="migy-gallery-image-upload button button-primary button-large migy-image-upload"
-										href="#"><?php echo esc_html__('Upload', 'mosaic-image-gallery'); ?></a>
-								</div>
+							<div class="migy-image-field-wrapper">
+								<input class="migy-gallery-form-control migy-image-url" type="text"
+									name="xxx_migy_gallery_image_url[]" value=""
+									placeholder="<?php echo esc_html__('Enter image URL', 'mosaic-image-gallery'); ?>">
+								<a class="migy-gallery-image-upload button button-primary button-large migy-image-upload"
+									href="#"><?php echo esc_html__('Upload', 'mosaic-image-gallery'); ?></a>
+							</div>
 						</li>
 						<li>
 							<label
@@ -286,6 +286,8 @@ if (!defined('ABSPATH'))
 		</label>
 	</p>
 
+	<hr>
+
 </div>
 <!-- End content tab -->
 
@@ -396,8 +398,8 @@ if (!defined('ABSPATH'))
 				</td>
 				<td>
 					<label for="migy_title_color"><strong>Title Color</strong></label><br>
-					<input type="color" name="migy_title_color" id="migy_title_color"
-						class="migy-form-field" value="<?php echo esc_html($migy_title_color); ?>">
+					<input type="color" name="migy_title_color" id="migy_title_color" class="migy-form-field"
+						value="<?php echo esc_html($migy_title_color); ?>">
 				</td>
 			</tr>
 			<tr>
@@ -412,14 +414,38 @@ if (!defined('ABSPATH'))
 				</td>
 			</tr>
 
+			<!-- Meta Background Color -->
+			<tr>
+				<?php
+				$migy_meta_bg_color = !empty(get_post_meta($post->ID, 'migy_meta_bg_color', true)) ? get_post_meta($post->ID, 'migy_meta_bg_color', true) : '#000000';
+				?>
+				<td>
+					<label><strong>Meta Background</strong></label>
+				</td>
+				<td>
+					<label for="migy_meta_bg_color"><strong>Background Color</strong></label><br>
+					<input type="color" name="migy_meta_bg_color" id="migy_meta_bg_color" class="migy-form-field"
+						value="<?php echo esc_html($migy_meta_bg_color); ?>">
+				</td>
+			</tr>
+			<tr>
+				<?php
+				$migy_meta_bg_opacity = !empty(get_post_meta($post->ID, 'migy_meta_bg_opacity', true)) ? get_post_meta($post->ID, 'migy_meta_bg_opacity', true) : '51';
+				?>
+				<td></td>
+				<td>
+					<label for="migy_meta_bg_opacity"><strong>Background Opacity</strong></label><br>
+					<input type="number" name="migy_meta_bg_opacity" id="migy_meta_bg_opacity" class="migy-form-field"
+						value="<?php echo esc_html($migy_meta_bg_opacity); ?>" min="0" max="100" step="1"> %
+				</td>
+			</tr>
+
 			<!-- Title and Description Font Family -->
 			<tr>
 				<?php
-				// Get stored values or set defaults
 				$migy_title_font_family = !empty(get_post_meta($post->ID, 'migy_title_font_family', true)) ? get_post_meta($post->ID, 'migy_title_font_family', true) : 'Arial, Helvetica, sans-serif';
 				$migy_description_font_family = !empty(get_post_meta($post->ID, 'migy_description_font_family', true)) ? get_post_meta($post->ID, 'migy_description_font_family', true) : 'Georgia, serif';
 
-				// WordPress default web-safe font list
 				$default_fonts = array(
 					'Arial, Helvetica, sans-serif' => 'Arial',
 					'Georgia, serif' => 'Georgia',
@@ -435,7 +461,7 @@ if (!defined('ABSPATH'))
 					<!-- Title Font Family -->
 					<label for="migy_title_font_family"><strong>Title Font Family</strong></label><br>
 					<select id="migy_title_font_family" name="migy_title_font_family" class="migy-form-field">
-						<?php foreach ($default_fonts as $font_value => $font_label) : ?>
+						<?php foreach ($default_fonts as $font_value => $font_label): ?>
 							<option value="<?php echo esc_attr($font_value); ?>" <?php selected($migy_title_font_family, $font_value); ?>>
 								<?php echo esc_html($font_label); ?>
 							</option>
@@ -449,8 +475,9 @@ if (!defined('ABSPATH'))
 				<td>
 					<!-- Description Font Family -->
 					<label for="migy_description_font_family"><strong>Description Font Family</strong></label><br>
-					<select id="migy_description_font_family" name="migy_description_font_family" class="migy-form-field">
-						<?php foreach ($default_fonts as $font_value => $font_label) : ?>
+					<select id="migy_description_font_family" name="migy_description_font_family"
+						class="migy-form-field">
+						<?php foreach ($default_fonts as $font_value => $font_label): ?>
 							<option value="<?php echo esc_attr($font_value); ?>" <?php selected($migy_description_font_family, $font_value); ?>>
 								<?php echo esc_html($font_label); ?>
 							</option>
@@ -507,7 +534,8 @@ if (!defined('ABSPATH'))
 				</td>
 				<td>
 					<label for="migy_title_font_size"><strong>Title Font Size</strong></label><br>
-					<input type="number" id="migy_title_font_size" name="migy_title_font_size" class="migy-form-field" value="<?php echo esc_attr($migy_title_font_size); ?>" min="10" max="50" step="1"> px
+					<input type="number" id="migy_title_font_size" name="migy_title_font_size" class="migy-form-field"
+						value="<?php echo esc_attr($migy_title_font_size); ?>" min="10" max="50" step="1"> px
 				</td>
 			</tr>
 			<tr>
@@ -517,7 +545,9 @@ if (!defined('ABSPATH'))
 				<td></td>
 				<td>
 					<label for="migy_description_font_size"><strong>Description Font Size</strong></label><br>
-					<input type="number" id="migy_description_font_size" name="migy_description_font_size" class="migy-form-field" value="<?php echo esc_attr($migy_description_font_size); ?>" min="10" max="30" step="1"> px
+					<input type="number" id="migy_description_font_size" name="migy_description_font_size"
+						class="migy-form-field" value="<?php echo esc_attr($migy_description_font_size); ?>" min="10"
+						max="30" step="1"> px
 				</td>
 			</tr>
 
@@ -544,49 +574,54 @@ if (!defined('ABSPATH'))
 			</tr>
 
 			<tr>
-			<?php
-			$migy_gallery_padding = get_post_meta($post->ID, 'migy_gallery_padding', true) ?: '1';
-			?>
-			<td>
-				<label for="migy_gallery_padding"><strong>Gallery Padding</strong></label>
-			</td>
-			<td>
-				<input type="number" min="0" id="migy_gallery_padding" name="migy_gallery_padding" class="migy-form-field" value="<?php echo esc_attr($migy_gallery_padding); ?>"> PX
-			</td>
-		</tr>
+				<?php
+				$migy_gallery_padding = get_post_meta($post->ID, 'migy_gallery_padding', true) ?: '1';
+				?>
+				<td>
+					<label for="migy_gallery_padding"><strong>Gallery Padding</strong></label>
+				</td>
+				<td>
+					<input type="number" min="0" id="migy_gallery_padding" name="migy_gallery_padding"
+						class="migy-form-field" value="<?php echo esc_attr($migy_gallery_padding); ?>"> PX
+				</td>
+			</tr>
 
 
-		<tr>
-			<?php
-			$migy_image_radius = get_post_meta($post->ID, 'migy_image_radius', true) ?: '';
-			?>
-			<td>
-				<label for="migy_image_radius"><strong>Image Border Radius</strong></label>
-			</td>
-			<td>
-				<input type="number" min="0" id="migy_image_radius" name="migy_image_radius" class="migy-form-field" value="<?php echo esc_attr($migy_image_radius); ?>" placeholder="e.g., 10px"> PX
-			</td>
-		</tr>
+			<tr>
+				<?php
+				$migy_image_radius = get_post_meta($post->ID, 'migy_image_radius', true) ?: '';
+				?>
+				<td>
+					<label for="migy_image_radius"><strong>Image Border Radius</strong></label>
+				</td>
+				<td>
+					<input type="number" min="0" id="migy_image_radius" name="migy_image_radius" class="migy-form-field"
+						value="<?php echo esc_attr($migy_image_radius); ?>" placeholder="e.g., 10px"> PX
+				</td>
+			</tr>
 
-		<tr>
-			<?php
-			$migy_image_shadow = get_post_meta($post->ID, 'migy_image_shadow', true) ?: 'none';
-			?>
-			<td>
-				<label for="migy_image_shadow"><strong>Image Box Shadow</strong></label>
-			</td>
-			<td>
-			<?php
+			<tr>
+				<?php
 				$migy_image_shadow = get_post_meta($post->ID, 'migy_image_shadow', true) ?: 'none';
 				?>
-				<select id="migy_image_shadow" name="migy_image_shadow" class="migy-form-field">
-					<option value="none" <?php selected('none', $migy_image_shadow); ?>>None</option>
-					<option value="shadow-soft" <?php selected('shadow-soft', $migy_image_shadow); ?>>Soft Shadow</option>
-					<option value="shadow-medium" <?php selected('shadow-medium', $migy_image_shadow); ?>>Medium Shadow</option>
-					<option value="shadow-strong" <?php selected('shadow-strong', $migy_image_shadow); ?>>Strong Shadow</option>
-				</select>
-			</td>
-		</tr>
+				<td>
+					<label for="migy_image_shadow"><strong>Image Box Shadow</strong></label>
+				</td>
+				<td>
+					<?php
+					$migy_image_shadow = get_post_meta($post->ID, 'migy_image_shadow', true) ?: 'none';
+					?>
+					<select id="migy_image_shadow" name="migy_image_shadow" class="migy-form-field">
+						<option value="none" <?php selected('none', $migy_image_shadow); ?>>None</option>
+						<option value="shadow-soft" <?php selected('shadow-soft', $migy_image_shadow); ?>>Soft Shadow
+						</option>
+						<option value="shadow-medium" <?php selected('shadow-medium', $migy_image_shadow); ?>>Medium
+							Shadow</option>
+						<option value="shadow-strong" <?php selected('shadow-strong', $migy_image_shadow); ?>>Strong
+							Shadow</option>
+					</select>
+				</td>
+			</tr>
 			<!-- new end -->
 		</tbody>
 	</table>

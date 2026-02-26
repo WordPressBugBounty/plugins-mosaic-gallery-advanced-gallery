@@ -9,10 +9,8 @@ class MIGY_ADMIN_FUNCTIONS
 
 	public function __construct()
 	{
-		//Gallery post meta boxes
 		add_action('add_meta_boxes', array($this, 'migy_register_meta_boxes'));
 		add_action('save_post', array($this, 'migy_save_meta_box'), 10, 2);
-		// Posts column
 		add_filter('manage_migy_image_gallery_posts_columns', array($this, 'migy_custom_columns'), 10);
 		add_action('manage_posts_custom_column', array($this, 'migy_custom_columns_shortcode'), 10, 2);
 
@@ -215,6 +213,8 @@ class MIGY_ADMIN_FUNCTIONS
 			'migy_description_font_family' => 'text',
 			'migy_title_alignment' => 'text',
 			'migy_description_alignment' => 'text',
+			'migy_meta_bg_color' => 'text',
+			'migy_meta_bg_opacity' => 'text',
 		);
 
 		return apply_filters('migy_meta_field_names', $fields);

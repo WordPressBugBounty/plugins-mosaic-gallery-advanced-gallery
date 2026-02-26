@@ -67,7 +67,6 @@
     margin-top: -50px;
     bottom: 0;
     transition: 0.7s;
-    /* max-height: 120px; */
     overflow-y: auto;
     box-sizing: border-box;
 }
