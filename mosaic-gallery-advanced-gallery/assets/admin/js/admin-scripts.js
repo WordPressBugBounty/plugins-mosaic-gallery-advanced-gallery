@@ -1,30 +1,30 @@
 (function ($) {
 	"use strict";
 	// Tab scripts
-	$(document).ready(function(){
-		$('.migy-content-and-style-tabs ul li').on('click', function(){
+	$(document).ready(function () {
+		$('.migy-content-and-style-tabs ul li').on('click', function () {
 			$('.migy-content-and-style-tabs ul li').removeClass('migy-tab-active');
 			$(this).addClass('migy-tab-active');
-		
-			if($(this).hasClass('migy-tab-content')){
+
+			if ($(this).hasClass('migy-tab-content')) {
 				$('.migy-tab-data-styles').hide();
 				$('.migy-tab-data-shortcode').hide();
 				$('.migy-tab-data-contents').show();
 			}
-			if($(this).hasClass('migy-tab-style')){
+			if ($(this).hasClass('migy-tab-style')) {
 				$('.migy-tab-data-contents').hide();
 				$('.migy-tab-data-shortcode').hide();
 				$('.migy-tab-data-styles').show();
 			}
-			if($(this).hasClass('migy-tab-shortcode')){
+			if ($(this).hasClass('migy-tab-shortcode')) {
 				$('.migy-tab-data-contents').hide();
 				$('.migy-tab-data-styles').hide();
 				$('.migy-tab-data-shortcode').show();
 			}
 		});
-		
 
-		
+
+
 
 	});
 
@@ -72,12 +72,12 @@
 			$('.migy_filter_category_field', this).find('.migy-filter-category').attr('name', 'migy_filter_category[' + index + '][]');
 		});
 	}
-	
+
 	//Fields sortable
 	$(document).ready(function () {
 		// Make the field sortable
 		var migy_repeatable_fields = $('#migy-repeatable-fields');
-		if(migy_repeatable_fields.length > 0) {
+		if (migy_repeatable_fields.length > 0) {
 			migy_repeatable_fields.sortable({
 				placeholder: "ui-state-highlight",
 				start: function (event, ui) {
@@ -91,7 +91,7 @@
 				}
 			});
 		}
-		
+
 		// Add a new field
 		$('#migy-add-field').click(function (e) {
 			e.preventDefault();
@@ -131,7 +131,7 @@
 				$('.migy_filter_category_field').addClass('hidden-if-image-gallery');
 			}
 		});
-		
+
 	});
 
 	/*Copy shortcode*/
@@ -162,8 +162,8 @@
 
 	});
 
-// fetch templates from live
-	jQuery(document).ready(function($) {
+	// fetch templates from live
+	jQuery(document).ready(function ($) {
 		var page = 1;
 		var isLoading = false;
 
@@ -171,48 +171,51 @@
 			if ($(window).scrollTop() + $(window).height() >= $(document).height() - 200 && !isLoading) {
 
 				if ($('.migy-templates-wrap').length) {
-					
+
 					loadMoreProducts()
 				}
 			}
 		});
 
-		$('.migy-category-filter').on('click', function(e){
+		$('.migy-category-filter').on('click', function (e) {
 			e.preventDefault();
 
 			$('.migy-category-filter').removeClass('active');
-			$(this).addClass('active');	
+			$(this).addClass('active');
+
+			var selectedText = $(this).text();
+			$('.hover-cont h4').text(selectedText);
 
 			jQuery('.migy-loader').show();
-        	jQuery('.migy-loader-overlay').show();
-	
-			productsAjax( '', '', $(this).attr('data-filter'), 'filter' );
+			jQuery('.migy-loader-overlay').show();
+
+			productsAjax('', '', $(this).attr('data-filter'), 'filter');
 		});
 
-		$('.migy-sync-btn').on('click', function(e){
+		$('.migy-sync-btn').on('click', function (e) {
 			e.preventDefault();
 
 			$('.migy-category-filter').removeClass('active').first().addClass('active');
 
 			jQuery('.migy-loader').show();
-        	jQuery('.migy-loader-overlay').show();
-	
-			productsAjax( '', '', '', 'sync' );
+			jQuery('.migy-loader-overlay').show();
+
+			productsAjax('', '', '', 'sync');
 		});
 
 		function loadMoreProducts() {
 			isLoading = true;
 			page++;
-	
+
 			const endCursor = jQuery('[name="migy-end-cursor"]').val();
 			const templateSearch = jQuery('[name="migy-templates-search"]').val();
-			const collection = jQuery('.migy-category-filter.active').attr('data-filter');			
-	
-			productsAjax( endCursor, templateSearch, collection, 'load' );
+			const collection = jQuery('.migy-category-filter.active').attr('data-filter');
+
+			productsAjax(endCursor, templateSearch, collection, 'load');
 		}
-	
-		function productsAjax( endCursor, templateSearch, collection, actionValue ) {
-	
+
+		function productsAjax(endCursor, templateSearch, collection, actionValue) {
+
 			$.ajax({
 				url: migy_pagination_object.ajaxurl,
 				type: 'POST',
@@ -226,13 +229,13 @@
 				success: function (response) {
 
 					$('.migy-loader').hide();
-                	$('.migy-loader-overlay').hide();
-	
+					$('.migy-loader-overlay').hide();
+
 					if (response.content) {
 
 						isLoading = false;
 
-						if ( actionValue != 'load' ) {
+						if (actionValue != 'load') {
 							$('.migy-wrapper').empty();
 						}
 
@@ -251,14 +254,14 @@
 				error: function () {
 
 					$('.migy-loader').hide();
-                	$('.migy-loader-overlay').hide();
+					$('.migy-loader-overlay').hide();
 				}
 			});
 		}
 
 		function debounce(func, delay) {
 			let timeoutId;
-			return function() {
+			return function () {
 				const context = this;
 				const args = arguments;
 				clearTimeout(timeoutId);
@@ -271,12 +274,12 @@
 		$('body').on("input", '[name="migy-templates-search"]', debounce(function (event) {
 
 			const templateSearch = $('[name="migy-templates-search"]').val();
-	
+
 			jQuery('.migy-loader').show();
 			jQuery('.migy-loader-overlay').show();
-			
-			productsAjax( '', templateSearch, '', 'search' );
-			
+
+			productsAjax('', templateSearch, '', 'search');
+
 		}, 1000));
 	});
 
@@ -298,18 +301,18 @@ function hide() {
 
 
 
-jQuery(document).ready(function($) {
-    $('#migy-popup-content .migy-popup-dismiss, #migy-popup-content .migy-popup-template-btn').on('click', function() {
-        $.ajax({
-            url: migy_ajax_object.ajaxurl,
-            type: 'POST',
-            data: { action: 'migy_get_notice_dismiss' },
-            success: function(response) {
-                $('#migy-popup-overlay').hide();     
-                // $('.migy-premium-floating-btn').fadeIn(); 
-                $('.migy-premium-floating-btn').fadeIn().attr('style', 'display: inline-block !important; position: fixed; bottom: 20px; right: 20px; z-index: 9999; padding: 10px 15px;');         
-            }
-        });
-    });
-    
+jQuery(document).ready(function ($) {
+	$('#migy-popup-content .migy-popup-dismiss, #migy-popup-content .migy-popup-template-btn').on('click', function () {
+		$.ajax({
+			url: migy_ajax_object.ajaxurl,
+			type: 'POST',
+			data: { action: 'migy_get_notice_dismiss' },
+			success: function (response) {
+				$('#migy-popup-overlay').hide();
+				// $('.migy-premium-floating-btn').fadeIn(); 
+				$('.migy-premium-floating-btn').fadeIn().attr('style', 'display: inline-block !important; position: fixed; bottom: 20px; right: 20px; z-index: 9999; padding: 10px 15px;');
+			}
+		});
+	});
+
 });

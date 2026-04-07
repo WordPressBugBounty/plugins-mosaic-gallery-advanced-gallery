@@ -569,6 +569,10 @@ if (!defined('ABSPATH'))
 						<option value="zoom" <?php selected('zoom', $migy_hover_effect); ?>>Zoom</option>
 						<option value="grayscale" <?php selected('grayscale', $migy_hover_effect); ?>>Grayscale</option>
 						<option value="blur" <?php selected('blur', $migy_hover_effect); ?>>Blur</option>
+						<option value="slide-up" <?php selected('slide-up', $migy_hover_effect); ?>>Slide Up</option>
+						<option value="slide-down" <?php selected('slide-down', $migy_hover_effect); ?>>Slide Down</option>
+						<option value="fade" <?php selected('fade', $migy_hover_effect); ?>>Fade</option>
+						<option value="brightness" <?php selected('brightness', $migy_hover_effect); ?>>Brightness</option>
 					</select>
 				</td>
 			</tr>

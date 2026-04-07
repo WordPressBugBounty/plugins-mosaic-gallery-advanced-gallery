@@ -171,7 +171,17 @@ function migy_dashboard_page() { ?>
     <div class="wrap migy-templates-wrap">
         <div class="migy-loader" style="display: none;"></div>
         <div class="migy-loader-overlay" style="display: none;"></div>
-        <div class="migy-topbar"><?php echo esc_html('🎆 New Year Special! Enjoy Flash Deals + 30% OFF – Use Code NY30'); ?><a class="migy-topbar-buy-now" href="" target="_blank"><?php echo esc_html('Buy Now'); ?></a></div>
+       
+        <!-- new add-->
+        <div class="migy-topbar">
+            <span class="migy-coupon-text">
+                <?php echo esc_html('SUMMER SALE - Get All Themes at Flat 20% OFF - Use Code "HEAT20"'); ?>
+            </span>
+            <a class="migy-topbar-buy-now" href="<?php echo esc_url(MIGY_MAIN_URL. 'collections/wp-themes'); ?>" target="_blank">
+                <?php echo esc_html('Buy Now'); ?>
+            </a>
+        </div>
+        <!-- end -->
         <div class="migy-header">
             <div class="migy-header-logo">
                 <img src="<?php echo esc_url(MIGY_PLUGIN_ASSEST. 'images/logo.png'); ?>" alt="<?php echo esc_attr('Mosaic Logo'); ?>">

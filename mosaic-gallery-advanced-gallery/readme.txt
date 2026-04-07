@@ -4,7 +4,7 @@ Tags: gallery, image gallery, photo gallery, video gallery, wordpress gallery pl
 Requires at least: 5.4
 Tested up to: 6.8
 Requires PHP: 5.2.4
-Stable tag: 1.1.7
+Stable tag: 1.1.8
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,10 @@ These libraries contribute to the functionality, performance, and user experienc
 
 
 == Changelog ==
+
+= 1.1.8 - 2026-07-04 =
+* Added new image hover effects: Slide Up, Slide Down, Fade, and Brightness.
+* Minor fixes.
 
 = 1.1.7 - 2026-14-01 =
 * Added meta background color and opacity settings.

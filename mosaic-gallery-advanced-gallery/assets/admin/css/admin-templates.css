@@ -313,3 +313,7 @@
     outline: unset;
     box-shadow: unset;
 }
+
+.migy-category-filter.active {
+	font-weight: bolder;
+}

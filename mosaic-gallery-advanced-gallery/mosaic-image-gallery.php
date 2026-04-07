@@ -2,7 +2,7 @@
 /*
  * Plugin Name: Mosaic Gallery - Advanced Gallery
  * Description: Mosaic Gallery is an advanced WordPress plugin for creating stunning, responsive mosaic-style galleries with ease, offering customizable layouts and effects.
- * Version: 1.1.7
+ * Version: 1.1.8
  * Author: misbahwp
  * Plugin URI: 
  * Text Domain: mosaic-image-gallery
@@ -17,7 +17,7 @@ class Mosaic_Image_Gallery
 
     public function __construct()
     {
-        define('MIGY_VERSION', '1.1.7');
+        define('MIGY_VERSION', '1.1.8');
         define('MIGY_GALLERY_SHORTCODE', 'migy_gallery');
         define('MIGY_PLUGIN_ASSEST', trailingslashit(plugins_url('assets', __FILE__)));
         define('MIGY_CSS_URI', MIGY_PLUGIN_ASSEST . 'css');
@@ -62,9 +62,9 @@ class Mosaic_Image_Gallery
             <div class="migy-notice-banner-wrap">
                 <img src="<?php echo esc_url(MIGY_PLUGIN_ASSEST . '/images/notice-background.png'); ?>" alt="">
                 <div class="migy-notice-heading">
-                    <h1 class="migy-main-head"><?php echo esc_html('WORDPRESS THEME BUNDLE - 100+ THEMES'); ?></h1>
+                    <h1 class="migy-main-head"><?php echo esc_html('WORDPRESS THEME BUNDLE - 110+ THEMES'); ?></h1>
                     <h4 class="migy-sub-head">
-                        <?php echo esc_html('Get Our Theme Pack of 100+ Wordpress Themes'); ?><strong><?php echo esc_html(' AT $89'); ?></strong>
+                        <?php echo esc_html('Get Our Theme Pack of 110+ Wordpress Themes'); ?><strong><?php echo esc_html(' AT $89'); ?></strong>
                     </h4>
                     <div class="migy-notice-btn">
                         <a class="migy-buy-btn" target="_blank"
