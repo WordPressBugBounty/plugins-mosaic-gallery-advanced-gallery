@@ -296,152 +296,136 @@ if (!defined('ABSPATH'))
 	<h4 class="migy-gallery-settings-heading left-align">
 		<?php echo esc_html__('Style Settings', 'mosaic-image-gallery'); ?>
 	</h4>
-	<table class="migy-style-meta-table">
-		<tbody>
-			<tr>
-				<td>
-					<?php
-					$migy_gallery_column = !empty(get_post_meta($post->ID, 'migy_gallery_column', true)) ? get_post_meta($post->ID, 'migy_gallery_column', true) : 'three-column';
-					?>
-					<label for="gallery_column"><strong>Item Columns</strong></label>
-				</td>
-				<td>
-					<select id="gallery_column" class="migy-form-field" name="migy_gallery_column">
-						<option value="two-column" <?php selected('two-column', $migy_gallery_column, true); ?>>2
-							Columns</option>
-						<option value="three-column" <?php selected('three-column', $migy_gallery_column, true); ?>>3
-							Columns</option>
-						<option value="four-column" <?php selected('four-column', $migy_gallery_column, true); ?>>4
-							Columns</option>
-					</select>
 
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<?php
-					$migy_gallery_item_space = !empty(get_post_meta($post->ID, 'migy_gallery_item_space', true)) ? get_post_meta($post->ID, 'migy_gallery_item_space', true) : 'five-px';
-					?>
-					<label for="gallery_item_space"><strong>Item Space</strong></label>
-				</td>
-				<td>
-					<select id="gallery_item_space" class="migy-form-field" name="migy_gallery_item_space">
-						<option value="five-px" <?php selected('five-px', $migy_gallery_item_space, true); ?>>5 PX
-						</option>
-						<option value="ten-px" <?php selected('ten-px', $migy_gallery_item_space, true); ?>>10 PX
-						</option>
-						<option value="fifteen-px" <?php selected('fifteen-px', $migy_gallery_item_space, true); ?>>15
-							PX</option>
-					</select>
+	<div class="migy-settings-grid">
 
-				</td>
-			</tr>
+		<!-- Item Columns -->
+		<div class="migy-setting-item">
+			<label class="migy-setting-label">
+				<?php
+				$migy_gallery_column = !empty(get_post_meta($post->ID, 'migy_gallery_column', true)) ? get_post_meta($post->ID, 'migy_gallery_column', true) : 'three-column';
+				?>
+				<strong>Item Columns</strong>
+			</label>
+			<div class="migy-setting-control">
+				<select id="gallery_column" class="migy-form-field" name="migy_gallery_column">
+					<option value="two-column" <?php selected('two-column', $migy_gallery_column, true); ?>>2 Columns
+					</option>
+					<option value="three-column" <?php selected('three-column', $migy_gallery_column, true); ?>>3
+						Columns</option>
+					<option value="four-column" <?php selected('four-column', $migy_gallery_column, true); ?>>4 Columns
+					</option>
+				</select>
+			</div>
+		</div>
 
-			<tr>
+		<!-- Item Space -->
+		<div class="migy-setting-item">
+			<label class="migy-setting-label">
+				<?php
+				$migy_gallery_item_space = !empty(get_post_meta($post->ID, 'migy_gallery_item_space', true)) ? get_post_meta($post->ID, 'migy_gallery_item_space', true) : 'five-px';
+				?>
+				<strong>Item Space</strong>
+			</label>
+			<div class="migy-setting-control">
+				<select id="gallery_item_space" class="migy-form-field" name="migy_gallery_item_space">
+					<option value="five-px" <?php selected('five-px', $migy_gallery_item_space, true); ?>>5 PX</option>
+					<option value="ten-px" <?php selected('ten-px', $migy_gallery_item_space, true); ?>>10 PX</option>
+					<option value="fifteen-px" <?php selected('fifteen-px', $migy_gallery_item_space, true); ?>>15 PX
+					</option>
+				</select>
+			</div>
+		</div>
+
+		<!-- Filter Button Color Group -->
+		<div class="migy-setting-item full-width migy-color-group">
+			<label class="migy-setting-label">
+				<strong>Filter Button Color</strong>
+			</label>
+			<div class="migy-setting-control migy-color-group-control">
 				<?php
 				$migy_filter_button_bg_color = !empty(get_post_meta($post->ID, 'migy_filter_button_bg_color', true)) ? get_post_meta($post->ID, 'migy_filter_button_bg_color', true) : '#f5f5f5';
+				$migy_filter_button_text_color = !empty(get_post_meta($post->ID, 'migy_filter_button_text_color', true)) ? get_post_meta($post->ID, 'migy_filter_button_text_color', true) : '#222';
+				$migy_filter_button_active_bg_color = !empty(get_post_meta($post->ID, 'migy_filter_button_active_bg_color', true)) ? get_post_meta($post->ID, 'migy_filter_button_active_bg_color', true) : '#f56616';
+				$migy_filter_button_active_text_color = !empty(get_post_meta($post->ID, 'migy_filter_button_active_text_color', true)) ? get_post_meta($post->ID, 'migy_filter_button_active_text_color', true) : '#fff';
 				?>
-				<td>
-					<label><strong>Filter Button Color</strong></label>
-				</td>
-				<td>
-					<label for="migy_filter_button_bg_color"><strong>Background</strong></label><br>
+				<div class="migy-color-item">
+					<label>Background</label>
 					<input type="color" name="migy_filter_button_bg_color" id="migy_filter_button_bg_color"
 						class="migy-form-field" value="<?php echo esc_html($migy_filter_button_bg_color); ?>">
-				</td>
-
-			</tr>
-			<tr>
-				<?php
-				$migy_filter_button_text_color = !empty(get_post_meta($post->ID, 'migy_filter_button_text_color', true)) ? get_post_meta($post->ID, 'migy_filter_button_text_color', true) : '#222';
-				?>
-				<td></td>
-				<td>
-					<label for="migy_filter_button_text_color"><strong>Text</strong></label><br>
+				</div>
+				<div class="migy-color-item">
+					<label>Text</label>
 					<input type="color" name="migy_filter_button_text_color" id="migy_filter_button_text_color"
 						class="migy-form-field" value="<?php echo esc_html($migy_filter_button_text_color); ?>">
-				</td>
-			</tr>
-			<tr>
-				<?php
-				$migy_filter_button_active_bg_color = !empty(get_post_meta($post->ID, 'migy_filter_button_active_bg_color', true)) ? get_post_meta($post->ID, 'migy_filter_button_active_bg_color', true) : '#16a085';
-				?>
-				<td></td>
-				<td>
-					<label for="migy_filter_button_active_bg_color"><strong>Hover and Active
-							Background</strong></label><br>
+				</div>
+				<div class="migy-color-item">
+					<label>Hover & Active BG</label>
 					<input type="color" name="migy_filter_button_active_bg_color"
 						id="migy_filter_button_active_bg_color" class="migy-form-field"
 						value="<?php echo esc_html($migy_filter_button_active_bg_color); ?>">
-				</td>
-			</tr>
-			<tr>
-				<?php
-				$migy_filter_button_active_text_color = !empty(get_post_meta($post->ID, 'migy_filter_button_active_text_color', true)) ? get_post_meta($post->ID, 'migy_filter_button_active_text_color', true) : '#fff';
-				?>
-				<td></td>
-				<td>
-					<label for="migy_filter_button_active_text_color"><strong>Hover and Active Text</strong></label><br>
+				</div>
+				<div class="migy-color-item">
+					<label>Hover & Active Text</label>
 					<input type="color" name="migy_filter_button_active_text_color"
 						id="migy_filter_button_active_text_color" class="migy-form-field"
 						value="<?php echo esc_html($migy_filter_button_active_text_color); ?>">
-				</td>
-			</tr>
+				</div>
+			</div>
+		</div>
 
-			<!-- Image Title and Description Colors -->
-			<tr>
+		<!-- Image Text Colors Group -->
+		<div class="migy-setting-item">
+			<label class="migy-setting-label">
+				<strong>Image Text Colors</strong>
+			</label>
+			<div class="migy-setting-control migy-color-group-control">
 				<?php
 				$migy_title_color = !empty(get_post_meta($post->ID, 'migy_title_color', true)) ? get_post_meta($post->ID, 'migy_title_color', true) : '#FFFFFF';
-				?>
-				<td>
-					<label><strong>Image Text Colors</strong></label>
-				</td>
-				<td>
-					<label for="migy_title_color"><strong>Title Color</strong></label><br>
-					<input type="color" name="migy_title_color" id="migy_title_color" class="migy-form-field"
-						value="<?php echo esc_html($migy_title_color); ?>">
-				</td>
-			</tr>
-			<tr>
-				<?php
 				$migy_description_color = !empty(get_post_meta($post->ID, 'migy_description_color', true)) ? get_post_meta($post->ID, 'migy_description_color', true) : '#FFFFFF';
 				?>
-				<td></td>
-				<td>
-					<label for="migy_description_color"><strong>Description Color</strong></label><br>
+				<div class="migy-color-item">
+					<label>Title Color</label>
+					<input type="color" name="migy_title_color" id="migy_title_color" class="migy-form-field"
+						value="<?php echo esc_html($migy_title_color); ?>">
+				</div>
+				<div class="migy-color-item">
+					<label>Description Color</label>
 					<input type="color" name="migy_description_color" id="migy_description_color"
 						class="migy-form-field" value="<?php echo esc_html($migy_description_color); ?>">
-				</td>
-			</tr>
+				</div>
+			</div>
+		</div>
 
-			<!-- Meta Background Color -->
-			<tr>
+		<!-- Meta Background Group -->
+		<div class="migy-setting-item">
+			<label class="migy-setting-label">
+				<strong>Meta Background</strong>
+			</label>
+			<div class="migy-setting-control migy-color-group-control">
 				<?php
 				$migy_meta_bg_color = !empty(get_post_meta($post->ID, 'migy_meta_bg_color', true)) ? get_post_meta($post->ID, 'migy_meta_bg_color', true) : '#000000';
-				?>
-				<td>
-					<label><strong>Meta Background</strong></label>
-				</td>
-				<td>
-					<label for="migy_meta_bg_color"><strong>Background Color</strong></label><br>
-					<input type="color" name="migy_meta_bg_color" id="migy_meta_bg_color" class="migy-form-field"
-						value="<?php echo esc_html($migy_meta_bg_color); ?>">
-				</td>
-			</tr>
-			<tr>
-				<?php
 				$migy_meta_bg_opacity = !empty(get_post_meta($post->ID, 'migy_meta_bg_opacity', true)) ? get_post_meta($post->ID, 'migy_meta_bg_opacity', true) : '51';
 				?>
-				<td></td>
-				<td>
-					<label for="migy_meta_bg_opacity"><strong>Background Opacity</strong></label><br>
+				<div class="migy-color-item">
+					<label>Background Color</label>
+					<input type="color" name="migy_meta_bg_color" id="migy_meta_bg_color" class="migy-form-field"
+						value="<?php echo esc_html($migy_meta_bg_color); ?>">
+				</div>
+				<div class="migy-color-item">
+					<label>Opacity %</label>
 					<input type="number" name="migy_meta_bg_opacity" id="migy_meta_bg_opacity" class="migy-form-field"
-						value="<?php echo esc_html($migy_meta_bg_opacity); ?>" min="0" max="100" step="1"> %
-				</td>
-			</tr>
+						value="<?php echo esc_html($migy_meta_bg_opacity); ?>" min="0" max="100" step="1">
+				</div>
+			</div>
+		</div>
 
-			<!-- Title and Description Font Family -->
-			<tr>
+		<!-- Font Family Group -->
+		<div class="migy-setting-item">
+			<label class="migy-setting-label">
+				<strong>Font Family</strong>
+			</label>
+			<div class="migy-setting-control migy-font-group">
 				<?php
 				$migy_title_font_family = !empty(get_post_meta($post->ID, 'migy_title_font_family', true)) ? get_post_meta($post->ID, 'migy_title_font_family', true) : 'Arial, Helvetica, sans-serif';
 				$migy_description_font_family = !empty(get_post_meta($post->ID, 'migy_description_font_family', true)) ? get_post_meta($post->ID, 'migy_description_font_family', true) : 'Georgia, serif';
@@ -454,12 +438,8 @@ if (!defined('ABSPATH'))
 					'"Palatino Linotype", "Book Antiqua", Palatino, serif' => 'Palatino Linotype'
 				);
 				?>
-				<td>
-					<label><strong>Font Family</strong></label>
-				</td>
-				<td>
-					<!-- Title Font Family -->
-					<label for="migy_title_font_family"><strong>Title Font Family</strong></label><br>
+				<div class="migy-font-item">
+					<label>Title Font Family</label>
 					<select id="migy_title_font_family" name="migy_title_font_family" class="migy-form-field">
 						<?php foreach ($default_fonts as $font_value => $font_label): ?>
 							<option value="<?php echo esc_attr($font_value); ?>" <?php selected($migy_title_font_family, $font_value); ?>>
@@ -467,14 +447,9 @@ if (!defined('ABSPATH'))
 							</option>
 						<?php endforeach; ?>
 					</select>
-				</td>
-			</tr>
-
-			<tr>
-				<td></td>
-				<td>
-					<!-- Description Font Family -->
-					<label for="migy_description_font_family"><strong>Description Font Family</strong></label><br>
+				</div>
+				<div class="migy-font-item">
+					<label>Description Font Family</label>
 					<select id="migy_description_font_family" name="migy_description_font_family"
 						class="migy-form-field">
 						<?php foreach ($default_fonts as $font_value => $font_label): ?>
@@ -483,152 +458,140 @@ if (!defined('ABSPATH'))
 							</option>
 						<?php endforeach; ?>
 					</select>
-				</td>
-			</tr>
-			<!-- end font family section -->
+				</div>
+			</div>
+		</div>
 
-			<!-- Title Alignment -->
-			<tr>
+		<!-- Title Alignment -->
+		<div class="migy-setting-item">
+			<label class="migy-setting-label">
 				<?php
 				$migy_title_alignment = !empty(get_post_meta($post->ID, 'migy_title_alignment', true)) ? get_post_meta($post->ID, 'migy_title_alignment', true) : 'left';
 				?>
-				<td>
-					<label><strong>Title Alignment</strong></label>
-				</td>
-				<td>
-					<select id="migy_title_alignment" name="migy_title_alignment" class="migy-form-field">
-						<option value="left" <?php selected('left', $migy_title_alignment, true); ?>>Left</option>
-						<option value="center" <?php selected('center', $migy_title_alignment); ?>>Center</option>
-						<option value="right" <?php selected('right', $migy_title_alignment); ?>>Right</option>
-					</select>
-				</td>
-			</tr>
-			<!-- end title alignment -->
+				<strong>Title Alignment</strong>
+			</label>
+			<div class="migy-setting-control">
+				<select id="migy_title_alignment" name="migy_title_alignment" class="migy-form-field">
+					<option value="left" <?php selected('left', $migy_title_alignment, true); ?>>Left</option>
+					<option value="center" <?php selected('center', $migy_title_alignment); ?>>Center</option>
+					<option value="right" <?php selected('right', $migy_title_alignment); ?>>Right</option>
+				</select>
+			</div>
+		</div>
 
-			<!-- Description Alignment -->
-			<tr>
+		<!-- Description Alignment -->
+		<div class="migy-setting-item">
+			<label class="migy-setting-label">
 				<?php
 				$migy_description_alignment = !empty(get_post_meta($post->ID, 'migy_description_alignment', true)) ? get_post_meta($post->ID, 'migy_description_alignment', true) : 'left';
 				?>
-				<td>
-					<label><strong>Description Alignment</strong></label>
-				</td>
-				<td>
-					<select id="migy_description_alignment" name="migy_description_alignment" class="migy-form-field">
-						<option value="left" <?php selected('left', $migy_description_alignment, true); ?>>Left</option>
-						<option value="center" <?php selected('center', $migy_description_alignment); ?>>Center</option>
-						<option value="right" <?php selected('right', $migy_description_alignment); ?>>Right</option>
-					</select>
-				</td>
-			</tr>
-			<!-- end description alignment -->
+				<strong>Description Alignment</strong>
+			</label>
+			<div class="migy-setting-control">
+				<select id="migy_description_alignment" name="migy_description_alignment" class="migy-form-field">
+					<option value="left" <?php selected('left', $migy_description_alignment, true); ?>>Left</option>
+					<option value="center" <?php selected('center', $migy_description_alignment); ?>>Center</option>
+					<option value="right" <?php selected('right', $migy_description_alignment); ?>>Right</option>
+				</select>
+			</div>
+		</div>
 
-
-			<!-- Title and Description Font Sizes -->
-			<tr>
+		<!-- Font Sizes Group -->
+		<div class="migy-setting-item">
+			<label class="migy-setting-label">
+				<strong>Font Sizes (px)</strong>
+			</label>
+			<div class="migy-setting-control migy-size-group">
 				<?php
 				$migy_title_font_size = !empty(get_post_meta($post->ID, 'migy_title_font_size', true)) ? get_post_meta($post->ID, 'migy_title_font_size', true) : '17';
-				?>
-				<td>
-					<label><strong>Font Sizes</strong></label>
-				</td>
-				<td>
-					<label for="migy_title_font_size"><strong>Title Font Size</strong></label><br>
-					<input type="number" id="migy_title_font_size" name="migy_title_font_size" class="migy-form-field"
-						value="<?php echo esc_attr($migy_title_font_size); ?>" min="10" max="50" step="1"> px
-				</td>
-			</tr>
-			<tr>
-				<?php
 				$migy_description_font_size = !empty(get_post_meta($post->ID, 'migy_description_font_size', true)) ? get_post_meta($post->ID, 'migy_description_font_size', true) : '14';
 				?>
-				<td></td>
-				<td>
-					<label for="migy_description_font_size"><strong>Description Font Size</strong></label><br>
+				<div class="migy-size-item">
+					<label>Title Font Size</label>
+					<input type="number" id="migy_title_font_size" name="migy_title_font_size" class="migy-form-field"
+						value="<?php echo esc_attr($migy_title_font_size); ?>" min="10" max="50" step="1">
+				</div>
+				<div class="migy-size-item">
+					<label>Description Font Size</label>
 					<input type="number" id="migy_description_font_size" name="migy_description_font_size"
 						class="migy-form-field" value="<?php echo esc_attr($migy_description_font_size); ?>" min="10"
-						max="30" step="1"> px
-				</td>
-			</tr>
+						max="30" step="1">
+				</div>
+			</div>
+		</div>
 
-			<!-- end  -->
-
-
-			<!-- new add -->
-
-			<tr>
+		<!-- Image Hover Effect -->
+		<div class="migy-setting-item">
+			<label class="migy-setting-label">
 				<?php
 				$migy_hover_effect = get_post_meta($post->ID, 'migy_hover_effect', true) ?: 'none';
 				?>
-				<td>
-					<label for="migy_hover_effect"><strong>Image Hover Effect</strong></label>
-				</td>
-				<td>
-					<select id="migy_hover_effect" class="migy-form-field" name="migy_hover_effect">
-						<option value="none" <?php selected('none', $migy_hover_effect); ?>>None</option>
-						<option value="zoom" <?php selected('zoom', $migy_hover_effect); ?>>Zoom</option>
-						<option value="grayscale" <?php selected('grayscale', $migy_hover_effect); ?>>Grayscale</option>
-						<option value="blur" <?php selected('blur', $migy_hover_effect); ?>>Blur</option>
-						<option value="slide-up" <?php selected('slide-up', $migy_hover_effect); ?>>Slide Up</option>
-						<option value="slide-down" <?php selected('slide-down', $migy_hover_effect); ?>>Slide Down</option>
-						<option value="fade" <?php selected('fade', $migy_hover_effect); ?>>Fade</option>
-						<option value="brightness" <?php selected('brightness', $migy_hover_effect); ?>>Brightness</option>
-					</select>
-				</td>
-			</tr>
+				<strong>Image Hover Effect</strong>
+			</label>
+			<div class="migy-setting-control">
+				<select id="migy_hover_effect" class="migy-form-field" name="migy_hover_effect">
+					<option value="none" <?php selected('none', $migy_hover_effect); ?>>None</option>
+					<option value="zoom" <?php selected('zoom', $migy_hover_effect); ?>>Zoom</option>
+					<option value="grayscale" <?php selected('grayscale', $migy_hover_effect); ?>>Grayscale</option>
+					<option value="blur" <?php selected('blur', $migy_hover_effect); ?>>Blur</option>
+					<option value="slide-up" <?php selected('slide-up', $migy_hover_effect); ?>>Slide Up</option>
+					<option value="slide-down" <?php selected('slide-down', $migy_hover_effect); ?>>Slide Down</option>
+					<option value="fade" <?php selected('fade', $migy_hover_effect); ?>>Fade</option>
+					<option value="brightness" <?php selected('brightness', $migy_hover_effect); ?>>Brightness</option>
+				</select>
+			</div>
+		</div>
 
-			<tr>
+		<!-- Gallery Padding -->
+		<div class="migy-setting-item">
+			<label class="migy-setting-label">
 				<?php
 				$migy_gallery_padding = get_post_meta($post->ID, 'migy_gallery_padding', true) ?: '1';
 				?>
-				<td>
-					<label for="migy_gallery_padding"><strong>Gallery Padding</strong></label>
-				</td>
-				<td>
-					<input type="number" min="0" id="migy_gallery_padding" name="migy_gallery_padding"
-						class="migy-form-field" value="<?php echo esc_attr($migy_gallery_padding); ?>"> PX
-				</td>
-			</tr>
+				<strong>Gallery Padding (px)</strong>
+			</label>
+			<div class="migy-setting-control">
+				<input type="number" min="0" id="migy_gallery_padding" name="migy_gallery_padding"
+					class="migy-form-field" value="<?php echo esc_attr($migy_gallery_padding); ?>">
+			</div>
+		</div>
 
-
-			<tr>
+		<!-- Image Border Radius -->
+		<div class="migy-setting-item">
+			<label class="migy-setting-label">
 				<?php
 				$migy_image_radius = get_post_meta($post->ID, 'migy_image_radius', true) ?: '';
 				?>
-				<td>
-					<label for="migy_image_radius"><strong>Image Border Radius</strong></label>
-				</td>
-				<td>
-					<input type="number" min="0" id="migy_image_radius" name="migy_image_radius" class="migy-form-field"
-						value="<?php echo esc_attr($migy_image_radius); ?>" placeholder="e.g., 10px"> PX
-				</td>
-			</tr>
+				<strong>Image Border Radius (px)</strong>
+			</label>
+			<div class="migy-setting-control">
+				<input type="number" min="0" id="migy_image_radius" name="migy_image_radius" class="migy-form-field"
+					value="<?php echo esc_attr($migy_image_radius); ?>" placeholder="e.g., 10">
+			</div>
+		</div>
 
-			<tr>
+		<!-- Image Box Shadow -->
+		<div class="migy-setting-item">
+			<label class="migy-setting-label">
 				<?php
 				$migy_image_shadow = get_post_meta($post->ID, 'migy_image_shadow', true) ?: 'none';
 				?>
-				<td>
-					<label for="migy_image_shadow"><strong>Image Box Shadow</strong></label>
-				</td>
-				<td>
-					<?php
-					$migy_image_shadow = get_post_meta($post->ID, 'migy_image_shadow', true) ?: 'none';
-					?>
-					<select id="migy_image_shadow" name="migy_image_shadow" class="migy-form-field">
-						<option value="none" <?php selected('none', $migy_image_shadow); ?>>None</option>
-						<option value="shadow-soft" <?php selected('shadow-soft', $migy_image_shadow); ?>>Soft Shadow
-						</option>
-						<option value="shadow-medium" <?php selected('shadow-medium', $migy_image_shadow); ?>>Medium
-							Shadow</option>
-						<option value="shadow-strong" <?php selected('shadow-strong', $migy_image_shadow); ?>>Strong
-							Shadow</option>
-					</select>
-				</td>
-			</tr>
-			<!-- new end -->
-		</tbody>
-	</table>
+				<strong>Image Box Shadow</strong>
+			</label>
+			<div class="migy-setting-control">
+				<select id="migy_image_shadow" name="migy_image_shadow" class="migy-form-field">
+					<option value="none" <?php selected('none', $migy_image_shadow); ?>>None</option>
+					<option value="shadow-soft" <?php selected('shadow-soft', $migy_image_shadow); ?>>Soft Shadow
+					</option>
+					<option value="shadow-medium" <?php selected('shadow-medium', $migy_image_shadow); ?>>Medium Shadow
+					</option>
+					<option value="shadow-strong" <?php selected('shadow-strong', $migy_image_shadow); ?>>Strong Shadow
+					</option>
+				</select>
+			</div>
+		</div>
+
+	</div>
 </div>
 
 <!-- Start shortcode tab -->
@@ -645,10 +608,10 @@ if (!defined('ABSPATH'))
 
 		<ul>
 			<li>To display the gallery on your website, just copy and paste <code
-					style="color:#16a085"><?php echo esc_attr($migy_scode); ?></code> into any post, page, or custom post
+					style="color:#f56616"><?php echo esc_attr($migy_scode); ?></code> into any post, page, or custom post
 				type content.</li>
 			<li>If you want to include the gallery directly in your theme files, use <code
-					style="color:#16a085">&lt;?php echo do_shortcode('<?php echo esc_attr($migy_scode); ?>'); ?&gt;</code>.
+					style="color:#f56616">&lt;?php echo do_shortcode('<?php echo esc_attr($migy_scode); ?>'); ?&gt;</code>.
 			</li>
 		</ul>
 		<?php

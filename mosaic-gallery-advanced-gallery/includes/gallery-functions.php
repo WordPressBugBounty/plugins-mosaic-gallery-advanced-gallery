@@ -147,7 +147,7 @@ class MIGY_Gallery_Functions {
         $filter_button_bg_color = !empty(get_post_meta($id, 'migy_filter_button_bg_color', true)) ? get_post_meta($id, 'migy_filter_button_bg_color', true) : '#f5f5f5';
         $filter_button_text_color = !empty(get_post_meta($id, 'migy_filter_button_text_color', true)) ? get_post_meta($id, 'migy_filter_button_text_color', true) : '#222';
 
-        $filter_button_bg_active_color = !empty(get_post_meta($id, 'migy_filter_button_active_bg_color', true)) ? get_post_meta($id, 'migy_filter_button_active_bg_color', true) : '#16a085';
+        $filter_button_bg_active_color = !empty(get_post_meta($id, 'migy_filter_button_active_bg_color', true)) ? get_post_meta($id, 'migy_filter_button_active_bg_color', true) : '#f56616';
         $filter_button_text_active_color = !empty(get_post_meta($id, 'migy_filter_button_active_text_color', true)) ? get_post_meta($id, 'migy_filter_button_active_text_color', true) : '#fff';
 
         $image_radius = !empty(get_post_meta($id, 'migy_image_radius', true)) ? get_post_meta($id, 'migy_image_radius', true) : '0';
