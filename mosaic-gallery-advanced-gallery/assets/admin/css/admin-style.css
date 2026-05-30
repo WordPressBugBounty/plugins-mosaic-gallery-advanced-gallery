@@ -371,6 +371,10 @@ li.migy_disabled_field input.migy-gallery-form-control {
     z-index: 1;
 }
 
+.migy-notice-banner-wrap .migy-notice-btn a:hover {
+    color: #FFF;
+}
+
 .migy-notice-banner-wrap .migy-notice-btn a {
     font-family: 'Bebas Neue';
     text-decoration: none;

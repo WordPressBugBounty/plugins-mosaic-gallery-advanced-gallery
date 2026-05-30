@@ -150,6 +150,14 @@ class MIGY_Gallery_Functions {
         $filter_button_bg_active_color = !empty(get_post_meta($id, 'migy_filter_button_active_bg_color', true)) ? get_post_meta($id, 'migy_filter_button_active_bg_color', true) : '#f56616';
         $filter_button_text_active_color = !empty(get_post_meta($id, 'migy_filter_button_active_text_color', true)) ? get_post_meta($id, 'migy_filter_button_active_text_color', true) : '#fff';
 
+        $filter_buttons_alignment = !empty(get_post_meta($id, 'migy_filter_buttons_alignment', true)) ? get_post_meta($id, 'migy_filter_buttons_alignment', true) : 'left';
+        $filter_buttons_alignment_map = array(
+            'left'   => 'flex-start',
+            'center' => 'center',
+            'right'  => 'flex-end',
+        );
+        $filter_buttons_justify = isset($filter_buttons_alignment_map[$filter_buttons_alignment]) ? $filter_buttons_alignment_map[$filter_buttons_alignment] : 'flex-start';
+
         $image_radius = !empty(get_post_meta($id, 'migy_image_radius', true)) ? get_post_meta($id, 'migy_image_radius', true) : '0';
         $image_radius =  $image_radius .'px';
 
@@ -178,6 +186,12 @@ class MIGY_Gallery_Functions {
         
 
         $custom_css = "";
+        $custom_css .= ".migy-img-viewer-" . $id . " .migy-filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: " . $filter_buttons_justify . ";
+        }";
+
         $custom_css .= ".migy-img-viewer-" . $id . " .migy-filter-buttons button.migy-filter-button {
             background-color: " . $filter_button_bg_color . ";
             border: 1px solid " . $filter_button_bg_color . ";

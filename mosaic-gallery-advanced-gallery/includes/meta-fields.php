@@ -374,6 +374,23 @@ if (!defined('ABSPATH'))
 			</div>
 		</div>
 
+		<!-- Filter Buttons Alignment -->
+		<div class="migy-setting-item">
+			<label class="migy-setting-label">
+				<?php
+				$migy_filter_buttons_alignment = !empty(get_post_meta($post->ID, 'migy_filter_buttons_alignment', true)) ? get_post_meta($post->ID, 'migy_filter_buttons_alignment', true) : 'left';
+				?>
+				<strong>Filter Buttons Alignment</strong>
+			</label>
+			<div class="migy-setting-control">
+				<select id="migy_filter_buttons_alignment" name="migy_filter_buttons_alignment" class="migy-form-field">
+					<option value="left" <?php selected('left', $migy_filter_buttons_alignment, true); ?>>Left</option>
+					<option value="center" <?php selected('center', $migy_filter_buttons_alignment); ?>>Center</option>
+					<option value="right" <?php selected('right', $migy_filter_buttons_alignment); ?>>Right</option>
+				</select>
+			</div>
+		</div>
+
 		<!-- Image Text Colors Group -->
 		<div class="migy-setting-item">
 			<label class="migy-setting-label">
