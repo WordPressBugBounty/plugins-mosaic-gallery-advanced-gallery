@@ -2,9 +2,9 @@
 Contributors: misbahwp
 Tags: gallery, image gallery, photo gallery, video gallery, wordpress gallery plugin
 Requires at least: 5.4
-Tested up to: 6.8
+Tested up to: 7.1
 Requires PHP: 5.2.4
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,12 @@ These libraries contribute to the functionality, performance, and user experienc
 
 
 == Changelog ==
+
+= 1.2.1 - 2026-11-09 =
+* Fixed: image alt text set in the gallery editor was ignored on the front end (image title was used instead).
+* Security: added nonce verification and input sanitization to the template-browser AJAX endpoints.
+* Added uninstall.php to remove plugin options on uninstall.
+* Performance: gallery CSS/JS is now only loaded on pages that actually contain the gallery shortcode.
 
 = 1.2.0 - 2026-28-05 =
 * Minor fixes and UI improvements.
@@ -154,26 +160,3 @@ These libraries contribute to the functionality, performance, and user experienc
 
 = 1.0.0 - 2024-09-10 =
 * Initial release
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

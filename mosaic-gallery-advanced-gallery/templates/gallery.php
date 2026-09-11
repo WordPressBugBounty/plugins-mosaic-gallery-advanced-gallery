@@ -45,6 +45,7 @@ if (!defined('ABSPATH'))
 				$image_url = $gallery_item['image_url'];
 				$image_title = $gallery_item['image_title'];
 				$image_description = $gallery_item['image_description'];
+				$image_alt = !empty($gallery_item['image_alt']) ? $gallery_item['image_alt'] : $image_title;
 				$filter_categories = '';
 
 				if ($migy_gallery_type == 'filterable_gallery') {

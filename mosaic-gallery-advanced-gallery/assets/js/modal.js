@@ -101,7 +101,8 @@
             method: "POST",
             url: migy_template_modal_js.admin_ajax,
             data: {
-                action: 'migy_get_categories'
+                action: 'migy_get_categories',
+                nonce: migy_template_modal_js.nonce
             }
         }).done(function( data ) {
 
@@ -127,7 +128,8 @@
             handle: handle,
             search: search,
             cursor: cursor,
-            action: 'migy_get_templates'
+            action: 'migy_get_templates',
+            nonce: migy_template_modal_js.nonce
         }
         
         $.ajax({

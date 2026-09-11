@@ -29,7 +29,7 @@
 	$migy_meta_bg_rgba = "rgba($r, $g, $b, $opacity_decimal)";
 ?>
 <div class="migy-gallery-item <?php echo esc_attr($migy_gallery_item_class); ?> <?php echo esc_attr($filter_categories); ?> migy-hover-<?php echo esc_attr($migy_hover_effect); ?>" style="padding: <?php echo esc_attr($migy_gallery_padding); ?>px;">
-	<img src="<?php echo esc_url($image_url) ?>" alt="<?php echo esc_html($image_title); ?>">
+	<img src="<?php echo esc_url($image_url) ?>" alt="<?php echo esc_attr($image_alt); ?>">
 	<?php if(($display_image_title == 'yes' && !empty($image_title)) || ($display_image_description == 'yes' && !empty($image_description))): ?>
 	<div class="migy-item-meta <?php echo esc_attr($migy_item_meta_class); ?>" style="background: <?php echo esc_attr($migy_meta_bg_rgba); ?>;">
 		<?php if($display_image_title == 'yes' && !empty($image_title)): ?>

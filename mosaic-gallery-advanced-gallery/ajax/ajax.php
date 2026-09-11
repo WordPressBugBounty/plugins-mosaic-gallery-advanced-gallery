@@ -2,6 +2,8 @@
 
 function migy_get_categories() {
 
+    check_ajax_referer('migy_template_modal_nonce_action', 'nonce');
+
     $url = MIGY_API_URL . 'getCollections';
     $data = [];
     $args = [
@@ -39,11 +41,13 @@ add_action('wp_ajax_nopriv_migy_get_categories', 'migy_get_categories');
 
 function migy_get_templates() {
 
+    check_ajax_referer('migy_template_modal_nonce_action', 'nonce');
+
     $url = MIGY_API_URL . 'getFilteredProducts';
 
-    $handle = isset($_POST['handle']) ? $_POST['handle'] : '';
-    $search = isset($_POST['search']) ? $_POST['search'] : '';
-    $cursor = isset($_POST['cursor']) ? $_POST['cursor'] : null;
+    $handle = isset($_POST['handle']) ? sanitize_text_field(wp_unslash($_POST['handle'])) : '';
+    $search = isset($_POST['search']) ? sanitize_text_field(wp_unslash($_POST['search'])) : '';
+    $cursor = !empty($_POST['cursor']) ? sanitize_text_field(wp_unslash($_POST['cursor'])) : null;
 
     $data = [
         "collectionHandle" => $handle,

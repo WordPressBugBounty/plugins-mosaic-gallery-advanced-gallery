@@ -88,19 +88,33 @@ class MIGY_Gallery_Functions {
     
 	//Enqueue scripts
     public function mosaic_image_gallery_scripts() {
+        if (!$this->migy_gallery_assets_required()) {
+            return;
+        }
+
         // Define the version number
         $version = MIGY_VERSION; // Assuming MIGY_VERSION is defined elsewhere in your codebase
-    
+
         // CSS style
         wp_enqueue_style('migy-viewercss', MIGY_CSS_URI.'/viewer.css', array(), $version);
         wp_enqueue_style('migy-styles', MIGY_CSS_URI.'/styles.css', array(), $version);
 
         wp_enqueue_script('masonry');
-    
+
         // JS script
         wp_enqueue_script('migy-viewerjs', MIGY_JS_URI.'/viewer.js', array('jquery'), $version, true);
         wp_enqueue_script('migy-mixitup', MIGY_JS_URI.'/mixitup.min.js', array('jquery'), $version, true);
         wp_enqueue_script('migy-scripts', MIGY_JS_URI.'/scripts.js', array('jquery'), $version, true);
+    }
+
+    //Whether the current request needs the gallery front-end assets
+    private function migy_gallery_assets_required() {
+        global $post;
+
+        $required = ($post instanceof WP_Post) && has_shortcode($post->post_content, MIGY_GALLERY_SHORTCODE);
+
+        // Sites that place the shortcode in a widget/template outside post_content can force-enable via this filter.
+        return apply_filters('migy_load_gallery_assets', $required, $post);
     }
 	
 	//Enqueue admin scripts

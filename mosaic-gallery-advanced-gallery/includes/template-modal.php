@@ -14,7 +14,8 @@ function migy_enqueue_block_editor_assets() {
         array(
             'admin_ajax'                =>  admin_url( 'admin-ajax.php' ),
             'migy_plugin_assets_url'    => MIGY_PLUGIN_ASSEST,
-            'search_icon'               => MIGY_PLUGIN_ASSEST . 'images/search.png'
+            'search_icon'               => MIGY_PLUGIN_ASSEST . 'images/search.png',
+            'nonce'                     => wp_create_nonce( 'migy_template_modal_nonce_action' )
         )
     );
     wp_enqueue_script( 'migy-template-modal-js' );
