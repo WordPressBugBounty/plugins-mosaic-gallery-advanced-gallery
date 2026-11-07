@@ -175,7 +175,7 @@ function migy_dashboard_page() { ?>
         <!-- new add-->
         <div class="migy-topbar">
             <span class="migy-coupon-text">
-                <?php echo esc_html('SUMMER SALE - Get All Themes at Flat 20% OFF - Use Code "HEAT20"'); ?>
+                <?php echo esc_html('Get All Themes at Flat 20% OFF - Use Code "SPIRIT20"'); ?>
             </span>
             <a class="migy-topbar-buy-now" href="<?php echo esc_url(MIGY_MAIN_URL. 'collections/wp-themes'); ?>" target="_blank">
                 <?php echo esc_html('Buy Now'); ?>

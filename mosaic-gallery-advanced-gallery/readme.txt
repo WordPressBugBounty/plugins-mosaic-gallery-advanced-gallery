@@ -4,7 +4,7 @@ Tags: gallery, image gallery, photo gallery, video gallery, wordpress gallery pl
 Requires at least: 5.4
 Tested up to: 7.1
 Requires PHP: 5.2.4
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,11 @@ These libraries contribute to the functionality, performance, and user experienc
 
 
 == Changelog ==
+
+= 1.2.2 - 2026-11-03 =
+* Security: The admin popup dismiss action now requires a valid nonce and administrator permission. Previously any logged-in user could change the plugin's popup settings.
+* Fixed: The upgrade popup is now only shown to administrators, who are the users able to dismiss it.
+* Updated: Premium theme price now shown as "From $40", and the theme sale banner now uses the current coupon code SPIRIT20 (20% off).
 
 = 1.2.1 - 2026-11-09 =
 * Fixed: image alt text set in the gallery editor was ignored on the front end (image title was used instead).

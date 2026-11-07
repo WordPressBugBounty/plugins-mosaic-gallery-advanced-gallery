@@ -306,7 +306,7 @@ jQuery(document).ready(function ($) {
 		$.ajax({
 			url: migy_ajax_object.ajaxurl,
 			type: 'POST',
-			data: { action: 'migy_get_notice_dismiss' },
+			data: { action: 'migy_get_notice_dismiss', nonce: migy_ajax_object.dismiss_nonce },
 			success: function (response) {
 				$('#migy-popup-overlay').hide();
 				// $('.migy-premium-floating-btn').fadeIn(); 

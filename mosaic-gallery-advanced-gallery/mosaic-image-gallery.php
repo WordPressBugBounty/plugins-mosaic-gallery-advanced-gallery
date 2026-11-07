@@ -2,7 +2,7 @@
 /*
  * Plugin Name: Mosaic Gallery - Advanced Gallery
  * Description: Mosaic Gallery is an advanced WordPress plugin for creating stunning, responsive mosaic-style galleries with ease, offering customizable layouts and effects.
- * Version: 1.2.1
+ * Version: 1.2.2
  * Author: misbahwp
  * Plugin URI: 
  * Text Domain: mosaic-image-gallery
@@ -17,7 +17,7 @@ class Mosaic_Image_Gallery
 
     public function __construct()
     {
-        define('MIGY_VERSION', '1.2.1');
+        define('MIGY_VERSION', '1.2.2');
         define('MIGY_GALLERY_SHORTCODE', 'migy_gallery');
         define('MIGY_PLUGIN_ASSEST', trailingslashit(plugins_url('assets', __FILE__)));
         define('MIGY_CSS_URI', MIGY_PLUGIN_ASSEST . 'css');
@@ -106,6 +106,9 @@ class Mosaic_Image_Gallery
 
         if (!get_option('migy_show_activation_popup'))
             return;
+        // Only administrators can dismiss this popup, so only show it to them.
+        if (!current_user_can('manage_options'))
+            return;
         if (isset($_GET['page']) && $_GET['page'] === 'migy_templates') {
             return;
         }
@@ -114,7 +117,7 @@ class Mosaic_Image_Gallery
             <div id="migy-popup-content">
                 <span class="dashicons dashicons-plus-alt2 migy-popup-dismiss"></span>
                 <img src="<?php echo esc_url(MIGY_THEME_BUNDLE_IMAGE_URL); ?>" alt="Bundle Image">
-                <h2><?php echo esc_html('Upgrade Your Site with Pro Themes—From $48'); ?></h2>
+                <h2><?php echo esc_html('Upgrade Your Site with Pro Themes—From $40'); ?></h2>
                 <div class="migy-popup-wrap">
                     <a href="<?php echo esc_url(admin_url('edit.php?post_type=migy_image_gallery&page=migy_templates')); ?>"
                         class="button button-primary migy-popup-template-btn"><?php echo esc_html('View Premium Templates'); ?></a>

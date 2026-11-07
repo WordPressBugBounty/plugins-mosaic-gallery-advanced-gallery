@@ -40,6 +40,12 @@ class MIGY_Gallery_Functions {
     }
      public function migy_get_notice_dismiss() {
 
+            // Only administrators may change these site options, and only from a genuine admin request.
+            check_ajax_referer( 'migy_notice_dismiss_nonce', 'nonce' );
+            if ( ! current_user_can( 'manage_options' ) ) {
+                wp_send_json_error( [ 'msg' => 'Insufficient permissions.' ], 403 );
+            }
+
             delete_option( 'migy_show_activation_popup' );
             update_option('migy_show_deactivation_popup', true);
 
@@ -147,6 +153,7 @@ class MIGY_Gallery_Functions {
 
         wp_localize_script('migy-admin-scripts', 'migy_ajax_object', array(
             'ajaxurl' => admin_url('admin-ajax.php'),
+            'dismiss_nonce' => wp_create_nonce('migy_notice_dismiss_nonce'),
         ));
     }
 	
